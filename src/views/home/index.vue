@@ -9,12 +9,12 @@
         <p class="name">{{message.name}}</p>
         <div class="description">
           <p>
-            爱生活, 爱家人, 爱编程, 爱折腾, 爱面子, 爱自己
+            <animate-text :value="message.descriptions" :time="1000" />
           </p>
           <!-- <p>
-            将青春奉献予前端行业已有
+            从事前端工作
               <animate-text class="work-time-number" is-number :value="workTime" :time="1000" />
-            个日夜<br>
+            天<br>
           </p> -->
           <p>
             <h-button class="link" @click.native="goGitbug(message.github)">github</h-button>
@@ -38,7 +38,7 @@ export default {
     return {
       message: {
         name: '邱国辉',
-        descriptions: '爱生活, 爱家人, 爱编程, 爱自己',
+        descriptions: 'It is not because of being great that brings you dreams. It is because of dream, you become a great man.',
         github: 'https://github.com/qgh810'
       }
     }

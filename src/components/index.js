@@ -2,10 +2,12 @@
 
 import AnimateText from './animate-text/animate-text'
 import HButton from './button/button'
+import MenuButton from './button/menu-button'
 
 const components = {
   AnimateText,
-  HButton
+  HButton,
+  MenuButton
 }
 
 const install = function (Vue, opts = {}) {

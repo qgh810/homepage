@@ -1,12 +1,18 @@
 <template>
   <div id="app">
+    <topbar></topbar>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
+import Topbar from '@/components/topbar/topbar'
 export default {
-  name: 'app'
+  name: 'app',
+
+  components: {
+    Topbar
+  }
 }
 </script>
 
