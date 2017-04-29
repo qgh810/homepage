@@ -11,7 +11,7 @@ export default {
   props: {
     opacity: {
       type: Number,
-      default: 0.65
+      default: 0.4
     }
   },
 
@@ -35,6 +35,8 @@ export default {
     width 100%
     height 100%
     background #000 no-repeat url('~@/assets/images/bg.jpg') top center / auto 100%
+    filter blur(3px)
+    overflow hidden
     .mask
       position absolute
       top 0

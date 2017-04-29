@@ -6,15 +6,19 @@
         <img src="~@/assets/images/header-image.jpeg" alt="" width="100%" height="100%">
       </div>
       <div class="text-box">
-        <span class="name">{{message.name}}</span>
+        <p class="name">{{message.name}}</p>
         <div class="description">
-          <div>{{message.descriptions}}</div>
           <p>
-            <a class="link" target="_blank" href="https://github.com/qgh810">
-              <animate-text value="github: https://github.com/qgh810"></animate-text>
-            </a>
+            爱生活, 爱家人, 爱编程, 爱折腾, 爱面子, 爱自己
           </p>
-          <!-- <animate-text v-for="description in descriptions" class="description" :value="description"></animate-text> -->
+          <!-- <p>
+            将青春奉献予前端行业已有
+              <animate-text class="work-time-number" is-number :value="workTime" :time="1000" />
+            个日夜<br>
+          </p> -->
+          <p>
+            <h-button class="link" @click.native="goGitbug(message.github)">github</h-button>
+          </p>
         </div>
       </div>
     </div>
@@ -35,15 +39,22 @@ export default {
       message: {
         name: '邱国辉',
         descriptions: '爱生活, 爱家人, 爱编程, 爱自己',
-        github: 'github: https://github.com/qgh810'
+        github: 'https://github.com/qgh810'
       }
     }
   },
 
   computed: {
     workTime () {
-      const START_WORK_DATE = '2015/2/18'
-      return new Date() - new Date(START_WORK_DATE)
+      const START_WORK_DATE = '2014/8/2'
+      let result = parseInt((new Date() - new Date(START_WORK_DATE)) / (1000 * 3600 * 24))
+      return result
+    }
+  },
+
+  methods: {
+    goGitbug (url) {
+      window.open(url)
     }
   }
 }
@@ -56,7 +67,7 @@ text-color = rgba(255,255,255,0.5)
   width 100%
   height 100%
   position relative
-  padding 25vh 10vw
+  padding 22vh 10vw
   box-sizing border-box
   color text-color
 
@@ -71,22 +82,33 @@ text-color = rgba(255,255,255,0.5)
     border 5px solid rgba(255,255,255,0.7)
     border-radius 50%
     overflow hidden
+    box-shadow 2px 2px 5px 5px rgba(0,0,0,0.2)
 
   .text-box
     text-align center
 
     .name
       display block
-      height 60px
-      line-height 60px
+      margin-top 20px
       font-size 18px
+      text-shadow 2px 2px 2px rgba(0,0,0,0.5)
 
     .description
       font-size 12px
+      text-shadow 2px 2px 2px rgba(0,0,0,0.5)
+
+      .work-time-number
+        display inline
+        font-size 15px
 
       .link
-        color text-color
-        transition color ease 0.3s
+        margin-top 10px
+        padding 5px 20px
+        border-radius 3px
+        font-size 15px
+        opacity 0.5
+        transition all ease 0.3s
+        outline none
         &:hover
-          color rgba(255,255,255,0.8)
+          opacity 0.7
 </style>

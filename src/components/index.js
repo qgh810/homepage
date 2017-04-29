@@ -1,9 +1,11 @@
 // import GlobalComponent from './global-component'
 
 import AnimateText from './animate-text/animate-text'
+import HButton from './button/button'
 
 const components = {
-  AnimateText
+  AnimateText,
+  HButton
 }
 
 const install = function (Vue, opts = {}) {
