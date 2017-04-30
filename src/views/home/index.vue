@@ -11,11 +11,6 @@
           <p>
             <animate-text :value="message.descriptions" :time="1000" />
           </p>
-          <!-- <p>
-            从事前端工作
-              <animate-text class="work-time-number" is-number :value="workTime" :time="1000" />
-            天<br>
-          </p> -->
           <p>
             <h-button class="link" @click.native="goGitbug(message.github)">github</h-button>
           </p>
