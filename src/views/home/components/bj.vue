@@ -84,7 +84,7 @@ export default {
       height 104%
       background #000 no-repeat url('~@/assets/images/bg.jpg') top center / auto 100%
       transform scale(1.05)
-      transition all ease 0.3s
+      transition all ease 0.5s
 
     .mask
       position absolute

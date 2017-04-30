@@ -97,7 +97,7 @@ export default {
       this.isOpenMenu = !state
       this.menus = []
 
-      let currentMenus = [MENUS[0]]
+      let currentMenus = []
       window.clearInterval(this.intervalId)
       if (this.isOpenMenu) {
         this.intervalId = setInterval(() => {
@@ -105,7 +105,7 @@ export default {
           if (!newMenu) return window.clearInterval(this.intervalId)
           currentMenus.push(MENUS[currentMenus.length])
           this.menus = currentMenus
-        }, 150)
+        }, 100)
       }
     }
   }
@@ -199,7 +199,7 @@ export default {
   .menu-transition-enter-active
     animation menu-transition-in .4s
   .menu-transition-leave-active
-    animation menu-transition-out 0
+    filter url("#blur")
 
   .menu-transition-move
     transition transform 0.5s
@@ -213,9 +213,9 @@ export default {
     100%
       transform translateX(0)
 
-  @keyframes menu-transition-out
+  /*@keyframes menu-transition-out
     0%
       transform translateX(0)
     100%
-      transform translateX(-500px)
+      transform translateX(-500px)*/
 </style>
