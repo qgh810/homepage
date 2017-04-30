@@ -46,12 +46,17 @@ export default {
     this.addEventListener()
   },
 
+  beforeDestroy () {
+    // 移除鼠标事件
+    document.removeEventListener('mousemove', this.mousemoveEvent)
+  },
+
   methods: {
     addEventListener () {
       const time = 100
       var open = true
       let { clientWidth, clientHeight } = document.body
-      document.addEventListener('mousemove', (e) => {
+      document.addEventListener('mousemove', this.mousemoveEvent = (e) => {
         if (!open) return
         let {pageX, pageY} = e
         let left = -2 - (pageX - clientWidth / 2) / clientWidth * 2
