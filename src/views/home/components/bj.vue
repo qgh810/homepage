@@ -53,7 +53,7 @@ export default {
 
   methods: {
     addEventListener () {
-      const time = 100
+      const time = 200
       var open = true
       let { clientWidth, clientHeight } = document.body
       document.addEventListener('mousemove', this.mousemoveEvent = (e) => {

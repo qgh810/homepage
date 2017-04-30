@@ -34,7 +34,7 @@
       </div>
     </transition>
 
-    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="filters hidden">
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="filters">
   		<defs>
   			<filter id="blur" x="-20%" y="0" width="140%" height="100%">
   				<feGaussianBlur in="SourceGraphic" :stdDeviation="`${blur},0`"></feGaussianBlur>
@@ -172,7 +172,8 @@ export default {
       .menu
         filter blur(0)
         transform scale(1)*/
-
+    .filters
+      display none
 
 
 
