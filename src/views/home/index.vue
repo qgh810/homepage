@@ -38,7 +38,7 @@ export default {
     return {
       message: {
         name: '邱国辉',
-        descriptions: 'It is not because of being great that brings you dreams. It is because of dream, you become a great man.',
+        descriptions: 'It is because of dream, you become a great man.',
         github: 'https://github.com/qgh810'
       }
     }
@@ -54,6 +54,7 @@ export default {
 
   methods: {
     goGitbug (url) {
+      window.focus()
       window.open(url)
     }
   }
