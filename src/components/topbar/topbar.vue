@@ -83,7 +83,7 @@ export default {
   data () {
     return {
       isOpenMenu: false,
-      blur: 0,
+      blur: 12,
 
       menus: []
     }
@@ -105,7 +105,7 @@ export default {
           if (!newMenu) return window.clearInterval(this.intervalId)
           currentMenus.push(MENUS[currentMenus.length])
           this.menus = currentMenus
-        }, 50)
+        }, 150)
       }
     }
   }
@@ -151,6 +151,7 @@ export default {
       height 100%
       overflow auto
       color rgba(255,255,255,0.8)
+      overflow hidden
       .menu
         box-sizing border-box
         padding-right 30px
@@ -162,7 +163,6 @@ export default {
         text-shadow 2px 2px 1px rgba(0,0,0,0.3)
         cursor pointer
         transition all ease 0.3s
-        filter url("#blur")
         /*filter blur(3px)
         transform scale(1.2, 0.7)*/
         &:hover
@@ -178,6 +178,7 @@ export default {
 
   .menu-container-transition-enter-active
     animation menu-container-transition-in .5s
+
   .menu-container-transition-leave-active
     animation menu-container-transition-out .5s
 
@@ -196,14 +197,18 @@ export default {
       transform translateX(-500px)
 
   .menu-transition-enter-active
-    animation menu-transition-in .5s
+    animation menu-transition-in .4s
   .menu-transition-leave-active
-    animation menu-transition-out .5s
+    animation menu-transition-out 0
+
+  .menu-transition-move
+    transition transform 0.5s
 
   @keyframes menu-transition-in
     0%
       transform translateX(-500px)
-    50%
+      filter url("#blur")
+    60%
       transform translateX(30px)
     100%
       transform translateX(0)
