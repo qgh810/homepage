@@ -3,7 +3,7 @@
     <!-- 头部 -->
     <topbar />
     <!-- 主路由挂载点 -->
-    <transition name="page-transition">
+    <transition name="page-transition" mode="in-out">
       <router-view />
     </transition>
     <!-- svg样式定义, 不在页面显示内容 -->
@@ -35,8 +35,9 @@ export default {
 
 .page-transition-enter-active, .page-transition-leave-active
   transition all .5s
+  position absolute
 .page-transition-enter, .page-transition-leave-to
-  transform scale(1.05, 1)
+  /*transform scale(1.05, 1)*/
   /*transform-origin left*/
   opacity 0
 </style>

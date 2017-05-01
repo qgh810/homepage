@@ -51,7 +51,7 @@ const MENUS = [
   },
   {
     name: 'COLLECTION',
-    url: '/collection'
+    url: '/collections'
   },
   {
     name: 'RESUME',
