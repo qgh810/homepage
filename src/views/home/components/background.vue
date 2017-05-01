@@ -7,11 +7,13 @@
 </template>
 
 <script>
+import browser from '@/utils/browser'
+
 export default {
   name: 'Background',
 
   props: {
-    opacity: {
+    maskOpacity: {
       type: Number,
       default: 0.4
     }
@@ -20,8 +22,8 @@ export default {
   data () {
     return {
       position: {
-        x: -2,
-        y: -2
+        x: 50,
+        y: 50
       }
     }
   },
@@ -29,21 +31,22 @@ export default {
   computed: {
     backgroundStyle () {
       let result = {
-        left: `${this.position.x}%`,
-        top: `${this.position.y}%`
+        backgroundPositionX: `${this.position.x}%`,
+        backgroundPositionY: `${this.position.y}%`
       }
       return result
     },
     maskStyle () {
       let result = {
-        opacity: this.opacity
+        opacity: this.maskOpacity
       }
       return result
     }
   },
 
   mounted () {
-    this.addEventListener()
+    // 只有在webkit内核才使用背景动画
+    !browser.versions.mobile && browser.versions.chrome && this.addEventListener()
   },
 
   beforeDestroy () {
@@ -53,16 +56,16 @@ export default {
 
   methods: {
     addEventListener () {
-      const time = 200
+      const time = 100
       var open = true
       let { clientWidth, clientHeight } = document.body
       document.addEventListener('mousemove', this.mousemoveEvent = (e) => {
         if (!open) return
         let {pageX, pageY} = e
-        let left = -2 - (pageX - clientWidth / 2) / clientWidth * 2
-        let top = -2 - (pageY - clientHeight / 2) / clientHeight * 2
-        this.position.x = left
-        this.position.y = top
+        let x = 50 + (pageX - clientWidth / 2) / clientWidth * 10
+        let y = 50 + (pageY - clientHeight / 2) / clientHeight * 100
+        this.position.x = x
+        this.position.y = y
         setTimeout(() => {
           open = true
         }, time)
@@ -85,10 +88,9 @@ export default {
     overflow hidden
     .background
       position absolute
-      width 104%
-      height 104%
-      background #000 no-repeat url('~@/assets/images/bg.jpg') top center / auto 100%
-      transform scale(1.05)
+      width 100%
+      height 100%
+      background #000 no-repeat url('~@/assets/images/bg.jpg') 50% 50% / auto 104%
       transition all ease 0.5s
 
     .mask

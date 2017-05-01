@@ -2,9 +2,8 @@
   <div class="home-root">
     <background></background>
     <div class="content-container">
-      <div class="header-image">
-        <img src="~@/assets/images/header-image.jpeg" alt="" width="100%" height="100%">
-      </div>
+      <header-image/>
+
       <div class="text-box">
         <p class="name">{{message.name}}</p>
         <div class="description">
@@ -21,11 +20,13 @@
 </template>
 
 <script>
-import Background from './components/bj'
+import HeaderImage from './components/header-image'
+import Background from './components/background'
 export default {
   name: 'Home',
 
   components: {
+    HeaderImage,
     Background
   },
 
@@ -70,15 +71,6 @@ text-color = rgba(255,255,255,0.5)
   .content-container
     width 100%
     height 100%
-
-  .header-image
-    margin 0 auto
-    width 25vh
-    height 25vh
-    border 5px solid rgba(255,255,255,0.7)
-    border-radius 50%
-    overflow hidden
-    box-shadow 2px 2px 5px 5px rgba(0,0,0,0.2)
 
   .text-box
     text-align center

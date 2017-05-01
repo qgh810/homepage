@@ -1,17 +1,24 @@
 <template>
   <div id="app">
-    <topbar></topbar>
-    <router-view></router-view>
+    <!-- 头部 -->
+    <topbar />
+    <!-- 主路由挂载点 -->
+    <router-view />
+    <!-- svg样式定义, 不在页面显示内容 -->
+    <svg-filter/>
   </div>
 </template>
 
 <script>
 import Topbar from '@/components/topbar/topbar'
+import SvgFilter from '@/components/svg-filter/svg-filter'
+
 export default {
   name: 'app',
 
   components: {
-    Topbar
+    Topbar,
+    SvgFilter
   }
 }
 </script>

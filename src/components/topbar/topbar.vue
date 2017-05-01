@@ -9,10 +9,11 @@
             >
             <div
               class="menu"
-              v-for="menu in menus"
+              :class="`filter-${moveFilterStyle}`"
+              v-for="menu in orderMenus"
               :key="menu.name"
               >
-              {{menu.name}}
+              <router-link :to="menu.url">{{menu.name}}</router-link>
             </div>
           </transition-group>
           <!-- <transition
@@ -34,47 +35,27 @@
       </div>
     </transition>
 
-    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="filters">
-  		<defs>
-  			<filter id="blur" x="-20%" y="0" width="140%" height="100%">
-  				<feGaussianBlur in="SourceGraphic" :stdDeviation="`${blur},0`"></feGaussianBlur>
-  			</filter>
-    		<!-- <filter id="blur0" x="-20%" y="0" width="140%" height="100%">
-    				<feGaussianBlur in="SourceGraphic" stdDeviation="1,0"></feGaussianBlur>
-  			</filter><filter id="blur1" x="-80%" y="0" width="240%" height="100%">
-  				<feGaussianBlur in="SourceGraphic" stdDeviation="1,0"></feGaussianBlur>
-  			</filter><filter id="blur2" x="-20%" y="0" width="140%" height="100%">
-  				<feGaussianBlur in="SourceGraphic" stdDeviation="1,0"></feGaussianBlur>
-  			</filter><filter id="blur3" x="-20%" y="0" width="140%" height="100%">
-  				<feGaussianBlur in="SourceGraphic" stdDeviation="1,0"></feGaussianBlur>
-  			</filter><filter id="blur4" x="-20%" y="0" width="140%" height="100%">
-  				<feGaussianBlur in="SourceGraphic" stdDeviation="1,0"></feGaussianBlur>
-  			</filter><filter id="blur5" x="-20%" y="0" width="140%" height="100%">
-  				<feGaussianBlur in="SourceGraphic" stdDeviation="1,0"></feGaussianBlur>
-  			</filter> -->
-      </defs>
-    	</svg>
-
   </div>
 </template>
 
 <script>
+import browser from '@/utils/browser'
 const MENUS = [
   {
     name: 'HOME',
-    url: ''
+    url: '/home'
   },
   {
     name: 'WORKS',
-    url: ''
+    url: '/works'
   },
   {
     name: 'COLLECTION',
-    url: ''
+    url: '/collection'
   },
   {
     name: 'RESUME',
-    url: ''
+    url: '/resume'
   }
 ]
 export default {
@@ -83,13 +64,29 @@ export default {
   data () {
     return {
       isOpenMenu: false,
-      blur: 12,
-
+      moveFilterStyle: browser.versions.webKit ? 'x' : '',
       menus: []
     }
   },
 
   computed: {
+    currentPath () {
+      return this.$route.path
+    },
+
+    orderMenus () {
+      let menus = this.menus
+      let result = []
+      menus.forEach(menu => {
+        let testResult = this.currentPath.indexOf(menu.url) === 0
+        testResult ? result.unshift(menu) : result.push(menu)
+      })
+      return result
+    }
+  },
+
+  mounted () {
+    console.log(browser.versions.webKit)
   },
 
   methods: {
@@ -106,6 +103,14 @@ export default {
           currentMenus.push(MENUS[currentMenus.length])
           this.menus = currentMenus
         }, 100)
+      }
+
+      if (browser.versions.webKit) {
+        this.moveFilterStyle = 'x'
+        window.clearTimeout(this.moveFilterStyleTimeId)
+        this.moveFilterStyleTimeId = setTimeout(() => {
+          this.moveFilterStyle = 'y'
+        }, 1000)
       }
     }
   }
@@ -161,19 +166,24 @@ export default {
         font-size 20px
         text-align right
         text-shadow 2px 2px 1px rgba(0,0,0,0.3)
-        cursor pointer
         transition all ease 0.3s
         /*filter blur(3px)
         transform scale(1.2, 0.7)*/
         &:hover
           background rgba(255,255,255,0.1)
           color rgba(255,255,255,0.9)
+          padding-right 33px
+
+        &>a
+          text-decoration none
+          color inherit
+          transition all ease 0.3s
+        .router-link-active
+          opacity 0.5
     /*.open
       .menu
         filter blur(0)
         transform scale(1)*/
-    .filters
-      display none
 
 
 
@@ -186,7 +196,7 @@ export default {
   @keyframes menu-container-transition-in
     0%
       transform translateX(-500px)
-    50%
+    60%
       transform translateX(30px)
     100%
       transform translateX(0)
@@ -200,17 +210,21 @@ export default {
   .menu-transition-enter-active
     animation menu-transition-in .4s
   .menu-transition-leave-active
-    filter url("#blur")
+    filter url("#filter-blur-x")
 
   .menu-transition-move
-    transition transform 0.5s
+    transition transform 0.3s
+  .filter-x.menu-transition-move
+    filter url("#filter-blur-x")
+  .filter-y.menu-transition-move
+    filter url("#filter-blur-y")
 
   @keyframes menu-transition-in
     0%
       transform translateX(-500px)
-      filter url("#blur")
     60%
       transform translateX(30px)
+
     100%
       transform translateX(0)
 
