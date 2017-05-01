@@ -2,8 +2,7 @@
   <div class="home-root">
     <background></background>
     <div class="content-container">
-      <header-image/>
-
+      <header-image />
       <div class="text-box">
         <p class="name">{{message.name}}</p>
         <div class="description">

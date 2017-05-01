@@ -3,7 +3,9 @@
     <!-- 头部 -->
     <topbar />
     <!-- 主路由挂载点 -->
-    <router-view />
+    <transition name="page-transition">
+      <router-view />
+    </transition>
     <!-- svg样式定义, 不在页面显示内容 -->
     <svg-filter/>
   </div>
@@ -30,4 +32,11 @@ export default {
 #app
   width 100%
   height 100%
+
+.page-transition-enter-active, .page-transition-leave-active
+  transition all .5s
+.page-transition-enter, .page-transition-leave-to
+  transform scale(0.95, 1)
+  /*transform-origin left*/
+  opacity 0
 </style>
