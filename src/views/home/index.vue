@@ -21,6 +21,7 @@
 <script>
 import HeaderImage from './components/header-image'
 import Background from './components/background'
+
 export default {
   name: 'Home',
 
@@ -39,17 +40,8 @@ export default {
     }
   },
 
-  computed: {
-    workTime () {
-      const START_WORK_DATE = '2014/8/2'
-      let result = parseInt((new Date() - new Date(START_WORK_DATE)) / (1000 * 3600 * 24))
-      return result
-    }
-  },
-
   methods: {
     goGitbug (url) {
-      window.focus()
       window.open(url)
     }
   }

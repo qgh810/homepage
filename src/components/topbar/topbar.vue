@@ -4,9 +4,7 @@
     <transition name="menu-container-transition">
       <div class="menu-container" v-show="isOpenMenu" :class="{open: isOpenMenu}">
         <div class="menus">
-          <transition-group
-            name="menu-transition"
-            >
+          <transition-group name="menu-transition">
             <div
               class="menu"
               :class="`filter-${moveFilterStyle}`"
@@ -16,21 +14,6 @@
               <router-link :to="menu.url">{{menu.name}}</router-link>
             </div>
           </transition-group>
-          <!-- <transition
-            v-for="menu in menus"
-            v-on:before-enter="beforeEnter"
-            v-on:enter="enter"
-            v-on:after-enter="afterEnter"
-            v-on:enter-cancelled="enterCancelled"
-            v-on:before-leave="beforeLeave"
-            v-on:leave="leave"
-            v-on:after-leave="afterLeave"
-            v-on:leave-cancelled="leaveCancelled"
-            >
-            <div class="menu">
-              {{menu.name}}
-            </div>
-          </transition> -->
         </div>
       </div>
     </transition>
@@ -91,8 +74,8 @@ export default {
   methods: {
     toggleMenuState (state) {
       this.isOpenMenu = !state
+      // 重置导航 延时一个一个插入 做出动画效果
       this.menus = []
-
       let currentMenus = []
       window.clearInterval(this.intervalId)
       if (this.isOpenMenu) {
@@ -104,6 +87,7 @@ export default {
         }, 100)
       }
 
+      // 如果是webkit内核的浏览器才添加模糊效果
       if (browser.versions.webKit) {
         this.moveFilterStyle = 'x'
         window.clearTimeout(this.moveFilterStyleTimeId)
