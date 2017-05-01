@@ -66,10 +66,10 @@ text-color = rgba(255,255,255,0.5)
   padding 22vh 10vw
   box-sizing border-box
   color text-color
-
   .content-container
     width 100%
     height 100%
+    position relative
 
   .text-box
     text-align center

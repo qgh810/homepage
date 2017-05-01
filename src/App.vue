@@ -32,6 +32,7 @@ export default {
 #app
   width 100%
   height 100%
+  background #000
 
 .page-transition-enter-active, .page-transition-leave-active
   transition all .5s

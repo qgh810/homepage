@@ -64,7 +64,7 @@ export default {
   data () {
     return {
       isOpenMenu: false,
-      moveFilterStyle: browser.versions.webKit ? 'x' : '',
+      moveFilterStyle: browser.versions.chrome || browser.versions.ios ? 'x' : '',
       menus: []
     }
   },
@@ -86,7 +86,6 @@ export default {
   },
 
   mounted () {
-    console.log(browser.versions.webKit)
   },
 
   methods: {
@@ -170,7 +169,7 @@ export default {
         /*filter blur(3px)
         transform scale(1.2, 0.7)*/
         &:hover
-          background rgba(255,255,255,0.1)
+          /*background rgba(255,255,255,0.1)*/
           color rgba(255,255,255,0.9)
           padding-right 33px
 
