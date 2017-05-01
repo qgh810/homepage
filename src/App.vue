@@ -36,7 +36,7 @@ export default {
 .page-transition-enter-active, .page-transition-leave-active
   transition all .5s
 .page-transition-enter, .page-transition-leave-to
-  transform scale(0.95, 1)
+  transform scale(1.05, 1)
   /*transform-origin left*/
   opacity 0
 </style>
