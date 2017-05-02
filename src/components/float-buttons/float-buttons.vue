@@ -7,6 +7,8 @@
 </template>
 
 <script>
+import store from '@/store'
+
 export default {
   name: 'FloatButtons',
 
@@ -23,7 +25,7 @@ export default {
 
   methods: {
     onMessageButtonClick () {
-      console.log('显示留言板')
+      store.dispatch('showMessageBoard')
     }
   }
 }

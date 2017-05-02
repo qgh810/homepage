@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import createLogger from 'vuex/logger'
+import createLogger from 'vuex/dist/logger'
 import messageBoard from './modules/message-board'
 
 Vue.use(Vuex)
