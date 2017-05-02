@@ -1,6 +1,6 @@
 <template>
   <div class="comment-root">
-    <div id="SOHUCS" ></div>
+    <!-- <div id="SOHUCS"></div> -->
   </div>
 </template>
 
@@ -10,7 +10,7 @@ export default {
 
   mounted () {
     setTimeout(() => {
-      this.initChangeyanPlugin()
+      // this.initChangeyanPlugin()
     }, 1000)
   },
 
