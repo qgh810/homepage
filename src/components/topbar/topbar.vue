@@ -39,6 +39,10 @@ const MENUS = [
   {
     name: 'RESUME',
     url: '/resume'
+  },
+  {
+    name: 'COMMENT',
+    url: '/comment'
   }
 ]
 export default {
