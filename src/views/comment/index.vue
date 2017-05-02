@@ -1,6 +1,8 @@
 <template>
   <div class="comment-root">
-    <div class="comment-container" id="SOHUCS"></div>
+    <div class="comment-container">
+      <div id="SOHUCS"></div>
+    </div>
   </div>
 </template>
 
@@ -44,6 +46,11 @@ export default {
   position relative
   padding 100px 30px 30px
   box-sizing border-box
+
+  .comment-container
+    width 100%
+    height 100%
+    overflow auto
 
 
 </style>
