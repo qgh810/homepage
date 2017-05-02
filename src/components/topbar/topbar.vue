@@ -11,7 +11,10 @@
               v-for="menu in orderMenus"
               :key="menu.name"
               >
-              <router-link :to="menu.url">{{menu.name}}</router-link>
+              <router-link :to="menu.url">
+                <!-- <i class="iconfont" v-html="menu.icon"></i> -->
+                {{menu.name}}
+              </router-link>
             </div>
           </transition-group>
         </div>
@@ -25,24 +28,29 @@
 import browser from '@/utils/browser'
 const MENUS = [
   {
-    name: 'HOME',
-    url: '/home'
+    name: 'HOME (主页)',
+    url: '/home',
+    icon: '&#xe61f;'
   },
   {
-    name: 'WORKS',
-    url: '/works'
+    name: 'WORKS (作品)',
+    url: '/works',
+    icon: '&#xe68d;'
   },
   {
-    name: 'COLLECTION',
-    url: '/collections'
+    name: 'COLLECTION (收藏)',
+    url: '/collections',
+    icon: '&#xe696;'
   },
   {
-    name: 'RESUME',
-    url: '/resume'
+    name: 'RESUME (简历)',
+    url: '/resume',
+    icon: '&#xe6c4;'
   },
   {
-    name: 'COMMENT',
-    url: '/comment'
+    name: 'COMMENT (评论)',
+    url: '/comment',
+    icon: '&#xe6a7;'
   }
 ]
 export default {
@@ -51,7 +59,7 @@ export default {
   data () {
     return {
       isOpenMenu: false,
-      moveFilterStyle: browser.versions.chrome || browser.versions.ios ? 'x' : '',
+      moveFilterStyle: browser.versions.chrome ? 'x' : '',
       menus: []
     }
   },
@@ -146,20 +154,21 @@ export default {
       overflow hidden
       .menu
         box-sizing border-box
-        padding-right 30px
+        padding-left 30px
         width 100%
         height 60px
         line-height 60px
         font-size 20px
-        text-align right
+        text-align left
         text-shadow 2px 2px 1px rgba(0,0,0,0.3)
         transition all ease 0.3s
+        overflow hidden
         /*filter blur(3px)
         transform scale(1.2, 0.7)*/
         &:hover
           /*background rgba(255,255,255,0.1)*/
           color rgba(255,255,255,0.9)
-          padding-right 33px
+          padding-left 33px
 
         &>a
           text-decoration none
@@ -172,7 +181,9 @@ export default {
         filter blur(0)
         transform scale(1)*/
 
-
+    .iconfont
+      font-size 25px
+      margin-right 15px
 
   .menu-container-transition-enter-active
     animation menu-container-transition-in .5s
