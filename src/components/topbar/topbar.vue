@@ -28,27 +28,27 @@
 import browser from '@/utils/browser'
 const MENUS = [
   {
-    name: 'HOME (主页)',
+    name: 'HOME',
     url: '/home',
     icon: '&#xe61f;'
   },
   {
-    name: 'WORKS (作品)',
+    name: 'WORKS',
     url: '/works',
     icon: '&#xe68d;'
   },
   {
-    name: 'COLLECTION (收藏)',
+    name: 'COLLECTION',
     url: '/collections',
     icon: '&#xe696;'
   },
   {
-    name: 'RESUME (简历)',
+    name: 'RESUME',
     url: '/resume',
     icon: '&#xe6c4;'
   },
   {
-    name: 'COMMENT (评论)',
+    name: 'COMMENT',
     url: '/comment',
     icon: '&#xe6a7;'
   }

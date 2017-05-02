@@ -6,6 +6,10 @@
     <transition name="page-transition" mode="in-out">
       <router-view />
     </transition>
+    <!-- 浮动按钮 -->
+    <float-buttons/>
+    <!-- 留言板 -->
+    <message-board/>
     <!-- svg样式定义, 不在页面显示内容 -->
     <svg-filter/>
   </div>
@@ -14,13 +18,17 @@
 <script>
 import Topbar from '@/components/topbar/topbar'
 import SvgFilter from '@/components/svg-filter/svg-filter'
+import FloatButtons from '@/components/float-buttons/float-buttons'
+import MessageBoard from '@/components/message-board/message-board'
 
 export default {
   name: 'app',
 
   components: {
     Topbar,
-    SvgFilter
+    SvgFilter,
+    FloatButtons,
+    MessageBoard
   }
 }
 </script>
