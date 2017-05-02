@@ -11,29 +11,37 @@ export default {
   name: 'Comment',
 
   mounted () {
-    this.initChangeyanPlugin()
+    this.getChangYanScript()
   },
 
   methods: {
-    initChangeyanPlugin () {
+    getChangYanScript () {
       let script
       const ID = 'changyan-script'
-      script = document.getElementById(ID)
-      if (script) return
-      script = document.createElement('script')
-      script.setAttribute('type', 'text/javascript')
-      script.setAttribute('charset', 'utf-8')
-      script.setAttribute('src', 'https://changyan.sohu.com/upload/changyan.js')
-      script.setAttribute('id', ID)
-      document.body.appendChild(script)
-      script.onload = function () {
-        window.changyan.api.config(
-          {
-            appid: 'cysYtxn7z',
-            conf: 'prod_3b9c222885e32e14c78058850a4cc0c5'
-          }
-        )
+      if (!window.changyan) {
+        script = document.createElement('script')
+        script.setAttribute('type', 'text/javascript')
+        script.setAttribute('charset', 'utf-8')
+        script.setAttribute('src', 'https://changyan.sohu.com/upload/changyan.js')
+        script.setAttribute('id', ID)
+        document.body.appendChild(script)
+        script.onload = this.changeyanPluginOnload
+      } else {
+        this.initChangeyanPlugin()
       }
+    },
+
+    changeyanPluginOnload () {
+      window.changyan.api.config(
+        {
+          appid: 'cysYtxn7z',
+          conf: 'prod_3b9c222885e32e14c78058850a4cc0c5'
+        }
+      )
+    },
+
+    initChangeyanPlugin () {
+      console.log(window.changyan.ready())
     }
   }
 }

@@ -113,7 +113,7 @@ export default {
     height 55px
     /*background rgba(0,0,0,0.2)*/
     color rgba(255,255,255,0.5)
-    z-index 10
+    z-index 20
 
     .menu-btn-box
       position absolute
