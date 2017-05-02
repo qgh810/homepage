@@ -1,6 +1,6 @@
 <template>
   <div class="comment-root">
-    <!-- <div id="SOHUCS"></div> -->
+    <div class="comment-container" id="SOHUCS"></div>
   </div>
 </template>
 
@@ -9,9 +9,7 @@ export default {
   name: 'Comment',
 
   mounted () {
-    setTimeout(() => {
-      // this.initChangeyanPlugin()
-    }, 1000)
+    this.initChangeyanPlugin()
   },
 
   methods: {
@@ -26,10 +24,26 @@ export default {
       script.setAttribute('src', 'https://changyan.sohu.com/upload/changyan.js')
       script.setAttribute('id', ID)
       document.body.appendChild(script)
+      script.onload = function () {
+        window.changyan.api.config(
+          {
+            appid: 'cysYtxn7z',
+            conf: 'prod_3b9c222885e32e14c78058850a4cc0c5'
+          }
+        )
+      }
     }
   }
 }
 </script>
 
 <style lang="stylus">
+.comment-root
+  width 100%
+  height 100%
+  position relative
+  padding 100px 30px 30px
+  box-sizing border-box
+
+
 </style>
