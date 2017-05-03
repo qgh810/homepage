@@ -46,11 +46,6 @@ const MENUS = [
     name: 'RESUME',
     url: '/resume',
     icon: '&#xe6c4;'
-  },
-  {
-    name: 'COMMENT',
-    url: '/comment',
-    icon: '&#xe6a7;'
   }
 ]
 export default {
