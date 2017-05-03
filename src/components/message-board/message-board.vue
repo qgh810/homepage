@@ -96,6 +96,7 @@ export default {
       color #555
 
 
+
 .message-board-transition-enter-active, .message-board-transition-leave-active
   transition all .3s
 .message-board-transition-enter, .message-board-transition-leave-to

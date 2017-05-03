@@ -10,6 +10,13 @@
 export default {
   name: 'MenuButton',
 
+  props: {
+    open: {
+      type: Boolean,
+      default: false
+    }
+  },
+
   data () {
     return {
       state: 1
@@ -18,18 +25,13 @@ export default {
 
   computed: {
     rootClassName () {
-      const classNames = {
-        '0': 'close',
-        '1': 'open'
-      }
-      return classNames[this.state]
+      return this.open ? 'close' : 'open'
     }
   },
 
   methods: {
     toggle () {
-      this.state = Number(!this.state)
-      this.$emit('changed', this.state)
+      this.$emit('changed', !this.open)
     }
   }
 }

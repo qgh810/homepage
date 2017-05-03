@@ -1,6 +1,6 @@
 <template>
   <div class="topbar-root">
-    <div class="menu-btn-box"><menu-button @changed="toggleMenuState"/></div>
+    <div class="menu-btn-box"><menu-button :open="isOpenMenu" @changed="toggleMenuState"/></div>
     <transition name="menu-container-transition">
       <div class="menu-container" v-show="isOpenMenu" :class="{open: isOpenMenu}">
         <div class="menus">
@@ -75,12 +75,21 @@ export default {
     }
   },
 
+  watch: {
+    currentPath () {
+      window.clearTimeout(this.tid)
+      this.tid = setTimeout(() => {
+        this.toggleMenuState(false)
+      }, 500)
+    }
+  },
+
   mounted () {
   },
 
   methods: {
     toggleMenuState (state) {
-      this.isOpenMenu = !state
+      this.isOpenMenu = state
       // 重置导航 延时一个一个插入 做出动画效果
       this.menus = []
       let currentMenus = []

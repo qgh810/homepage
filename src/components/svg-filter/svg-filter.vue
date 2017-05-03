@@ -1,6 +1,6 @@
 <template>
   <div class="svg-filters-root">
-    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="svg-filters-root">
+    <svg v-if="show" xmlns="http://www.w3.org/2000/svg" version="1.1" class="svg-filters-root">
       <defs>
         <filter id="filter-blur-x" x="-20%" y="0" width="140%" height="100%">
           <feGaussianBlur in="SourceGraphic" stdDeviation="12,0"></feGaussianBlur>
@@ -29,8 +29,16 @@
 </template>
 
 <script>
+import browser from '@/utils/browser'
+
 export default {
-  name: 'SvgFilter'
+  name: 'SvgFilter',
+
+  data () {
+    return {
+      show: browser.versions.chrome
+    }
+  }
 }
 </script>
 
