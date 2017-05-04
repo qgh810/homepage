@@ -43,16 +43,16 @@ export default {
       this.showingRipple = true
 
       var turb = document.querySelector('#filter-ripple feImage')
-      const width = 600
-      const height = 600
+      const width = 800
+      const height = 800
 
       let oldX = e.offsetX
       let oldY = e.offsetY
-
-      let setX = animationData.set(turb.attributes.x, 'value', oldX, oldX - width / 2)
-      let setY = animationData.set(turb.attributes.y, 'value', oldY, oldY - height / 2)
-      let setW = animationData.set(turb.attributes.width, 'value', 0, width)
-      let setH = animationData.set(turb.attributes.height, 'value', 0, height)
+      let time = 1200
+      let setX = animationData.set(turb.attributes.x, 'value', oldX, oldX - width / 2, time)
+      let setY = animationData.set(turb.attributes.y, 'value', oldY, oldY - height / 2, time)
+      let setW = animationData.set(turb.attributes.width, 'value', 0, width, time)
+      let setH = animationData.set(turb.attributes.height, 'value', 0, height, time)
 
       await setX
       await setY
@@ -75,9 +75,9 @@ export default {
 .header-image
   width 100%
   height 100%
-  border 5px solid rgba(255,255,255,0.7)
+  border 5px solid rgba(255,255,255,1)
   border-radius 50%
-  box-shadow 2px 2px 5px 5px rgba(0,0,0,0.2)
+  box-shadow 2px 2px 5px 5px rgba(0,0,0,0.1)
   overflow hidden
   box-sizing border-box
 

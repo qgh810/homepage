@@ -1,6 +1,6 @@
 let self = {}
 
-function set (obj, key, oldValue, targetValue, time = 2000, reset = true) {
+function set (obj, key, oldValue, targetValue, time = 1000, reset = true) {
   return new Promise((resolve, reject) => {
     let d = targetValue - oldValue
     let step = d / (time / 16)
@@ -15,7 +15,7 @@ function set (obj, key, oldValue, targetValue, time = 2000, reset = true) {
         reset && setTimeout(() => {
           obj[key] = oldValue
           resolve()
-        }, 100)
+        }, time / 2)
       }
     })()
   })
