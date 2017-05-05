@@ -5,7 +5,7 @@
         <img src="~@/assets/images/header-image.jpeg" alt="" width="100%" height="100%">
       </div>
     </transition>
-    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="svg-filters">
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="svg-filters" v-if="isShowRipple">
 			<defs>
 				<filter id="filter-ripple">
 					<feImage xlink:href="../static/images/ripple.png" x="30" y="20" width="0" height="0" result="ripple"></feImage>
@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import browser from '@/utils/browser'
 import animationData from '@/utils/animation-data'
 
 export default {
@@ -31,6 +32,12 @@ export default {
     }
   },
 
+  computed: {
+    isShowRipple () {
+      return !browser.versions.mobile
+    }
+  },
+
   mounted () {
     setTimeout(() => {
       this.show = true
@@ -39,6 +46,7 @@ export default {
 
   methods: {
     async showSvgRipple (e) {
+      if (!this.isShowRipple) return
       if (this.showingRipple) return
       this.showingRipple = true
 
