@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import browser from '@/utils/browser'
+// import browser from '@/utils/browser'
 
 export default {
   name: 'Background',
@@ -46,12 +46,12 @@ export default {
 
   mounted () {
     // 只有在webkit内核才使用背景动画
-    !browser.versions.mobile && browser.versions.chrome && this.addEventListener()
+    // !browser.versions.mobile && browser.versions.chrome && this.addEventListener()
   },
 
   beforeDestroy () {
     // 移除鼠标事件
-    document.removeEventListener('mousemove', this.mousemoveEvent)
+    // document.removeEventListener('mousemove', this.mousemoveEvent)
   },
 
   methods: {
