@@ -18,7 +18,8 @@ var browser = {
       webApp: ua.indexOf('Safari') === -1, // 是否web应用程序，没有头部与底部
       weixin: ua.indexOf('MicroMessenger') > -1, // 是否微信 （2015-01-22新增）
       qq: ua.match(/\sQQ/i) === ' qq', // 是否QQ
-      chrome: navigator.userAgent.indexOf('Chrome') > -1
+      chrome: ua.indexOf('Chrome') > -1,
+      mac: ua.indexOf('Mac') > -1
     }
   })(),
   language: (navigator.browserLanguage || navigator.language).toLowerCase()
