@@ -53,17 +53,22 @@ export default {
 
   data () {
     return {
+      // 导航展开状态标志位
       isOpenMenu: false,
+      // 滤镜类型
       moveFilterStyle: browser.versions.chrome ? 'x' : '',
+      // 导航列表
       menus: []
     }
   },
 
   computed: {
+    // 当前路径
     currentPath () {
       return this.$route.path
     },
 
+    // 导航列表排序
     orderMenus () {
       let menus = this.menus
       let result = []
@@ -76,6 +81,7 @@ export default {
   },
 
   watch: {
+    // 监听路径变化 (跳转页面后关闭导航栏)
     currentPath () {
       window.clearTimeout(this.tid)
       this.tid = setTimeout(() => {
@@ -88,6 +94,10 @@ export default {
   },
 
   methods: {
+    /**
+     * 切换菜单状态
+     * state: 开启或关闭(Boolean)
+     */
     toggleMenuState (state) {
       this.isOpenMenu = state
       // 重置导航 延时一个一个插入 做出动画效果
