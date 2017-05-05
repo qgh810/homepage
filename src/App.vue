@@ -11,7 +11,7 @@
     <!-- 留言板 -->
     <message-board/>
     <!-- svg样式定义, 不在页面显示内容 -->
-    <svg-filter/>
+    <!-- <svg-filter/> -->
   </div>
 </template>
 

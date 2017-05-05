@@ -8,21 +8,6 @@
         <filter id="filter-blur-y" x="0" y="20%" width="100%" height="140%">
           <feGaussianBlur in="SourceGraphic" stdDeviation="0,20"></feGaussianBlur>
         </filter>
-        <!-- <filter id="blur1" x="-80%" y="0" width="240%" height="100%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="1,0"></feGaussianBlur>
-        </filter>
-        <filter id="blur2" x="-20%" y="0" width="140%" height="100%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="1,0"></feGaussianBlur>
-        </filter>
-        <filter id="blur3" x="-20%" y="0" width="140%" height="100%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="1,0"></feGaussianBlur>
-        </filter>
-        <filter id="blur4" x="-20%" y="0" width="140%" height="100%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="1,0"></feGaussianBlur>
-        </filter>
-        <filter id="blur5" x="-20%" y="0" width="140%" height="100%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="1,0"></feGaussianBlur>
-        </filter> -->
       </defs>
     </svg>
   </div>
@@ -36,7 +21,7 @@ export default {
 
   data () {
     return {
-      show: browser.versions.chrome
+      show: browser.versions.aaa
     }
   }
 }

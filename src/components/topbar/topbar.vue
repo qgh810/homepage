@@ -1,10 +1,12 @@
 <template>
   <div class="topbar-root">
     <!-- 菜单按钮 -->
-    <div class="menu-btn-box"><menu-button :open="isOpenMenu" @changed="toggleMenuState"/></div>
+    <div class="menu-btn-box" @mouseenter="enterMenuBtn = true" @mouseleave="enterMenuBtn = false">
+      <menu-button :open="isOpenMenu" @changed="toggleMenuState"/>
+    </div>
     <!-- 导航列表 -->
-    <transition name="menu-container-transition">
-      <div class="menu-container" v-show="isOpenMenu" :class="{open: isOpenMenu}">
+    <transition name="menu-container-transition" >
+      <div class="menu-container" v-show="isOpenMenu" :class="{open: isOpenMenu}" @mouseleave="onMenuMouseLeave">
         <div class="menus">
           <transition-group name="menu-transition">
             <div
@@ -57,6 +59,7 @@ export default {
     return {
       // 导航展开状态标志位
       isOpenMenu: false,
+      enterMenuBtn: false,
       // 滤镜类型
       moveFilterStyle: browser.versions.chrome ? 'x' : '',
       // 导航列表
@@ -85,10 +88,10 @@ export default {
   watch: {
     // 监听路径变化 (跳转页面后关闭导航栏)
     currentPath () {
-      window.clearTimeout(this.tid)
-      this.tid = setTimeout(() => {
-        this.toggleMenuState(false)
-      }, 500)
+      // window.clearTimeout(this.tid)
+      // this.tid = setTimeout(() => {
+      //   this.toggleMenuState(false)
+      // }, 1000)
     }
   },
 
@@ -116,13 +119,20 @@ export default {
       }
 
       // 如果是webkit内核的浏览器才添加模糊效果
-      if (browser.versions.webKit) {
-        this.moveFilterStyle = 'x'
-        window.clearTimeout(this.moveFilterStyleTimeId)
-        this.moveFilterStyleTimeId = setTimeout(() => {
-          this.moveFilterStyle = 'y'
-        }, 1000)
-      }
+      // if (browser.versions.webKit) {
+      //   this.moveFilterStyle = 'x'
+      //   window.clearTimeout(this.moveFilterStyleTimeId)
+      //   this.moveFilterStyleTimeId = setTimeout(() => {
+      //     this.moveFilterStyle = 'y'
+      //   }, 1000)
+      // }
+    },
+
+    onMenuMouseLeave () {
+      setTimeout(() => {
+        if (this.enterMenuBtn) return
+        this.toggleMenuState(false)
+      }, 50)
     }
   }
 }
@@ -223,15 +233,15 @@ export default {
 
   .menu-transition-enter-active
     animation menu-transition-in .4s
-  .menu-transition-leave-active
-    filter url("#filter-blur-x")
+  /*.menu-transition-leave-active
+    filter url("#filter-blur-x")*/
 
   .menu-transition-move
     transition transform 0.3s
-  .filter-x.menu-transition-move
+  /*.filter-x.menu-transition-move
     filter url("#filter-blur-x")
   .filter-y.menu-transition-move
-    filter url("#filter-blur-y")
+    filter url("#filter-blur-y")*/
 
   @keyframes menu-transition-in
     0%
