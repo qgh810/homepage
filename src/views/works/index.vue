@@ -20,7 +20,6 @@ export default {
   .works-roots
     width 100%
     height 100%
-    background #000
     text-align center
     color #fff
 </style>

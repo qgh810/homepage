@@ -40,7 +40,7 @@ export default {
 #app
   width 100%
   height 100%
-  background #000
+  background #000 repeat url('~@/assets/images/base-bg.jpg')
   overflow hidden
 
 .page-transition-enter-active, .page-transition-leave-active

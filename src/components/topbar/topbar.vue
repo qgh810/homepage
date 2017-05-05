@@ -123,7 +123,7 @@ export default {
     position fixed
     top 0
     left 0
-    width 100%
+    width 55px
     height 55px
     /*background rgba(0,0,0,0.2)*/
     color rgba(255,255,255,0.5)

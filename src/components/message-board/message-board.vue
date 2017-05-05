@@ -5,7 +5,7 @@
         <i class="iconfont">&#xe69a;</i>
       </div>
       <div class="comment-container">
-        <div id="SOHUCS" sid="homepage_index"></div>
+        <div id="SOHUCS" sid="homepage"></div>
       </div>
     </div>
   </transition>
