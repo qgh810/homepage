@@ -1,6 +1,8 @@
 <template>
   <div class="topbar-root">
+    <!-- 菜单按钮 -->
     <div class="menu-btn-box"><menu-button :open="isOpenMenu" @changed="toggleMenuState"/></div>
+    <!-- 导航列表 -->
     <transition name="menu-container-transition">
       <div class="menu-container" v-show="isOpenMenu" :class="{open: isOpenMenu}">
         <div class="menus">
@@ -73,8 +75,8 @@ export default {
       let menus = this.menus
       let result = []
       menus.forEach(menu => {
-        let testResult = this.currentPath.indexOf(menu.url) === 0
-        testResult ? result.unshift(menu) : result.push(menu)
+        let isCurrentMenu = this.currentPath.indexOf(menu.url) === 0
+        isCurrentMenu ? result.unshift(menu) : result.push(menu)
       })
       return result
     }
