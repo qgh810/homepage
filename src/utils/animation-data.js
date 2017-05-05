@@ -1,6 +1,6 @@
 let self = {}
 
-function set (obj, key, oldValue, targetValue, time = 1000, reset = true) {
+function set (obj, key, oldValue, targetValue, time = 1000) {
   return new Promise((resolve, reject) => {
     let d = targetValue - oldValue
     let step = d / (time / 16)
@@ -12,10 +12,10 @@ function set (obj, key, oldValue, targetValue, time = 1000, reset = true) {
       if (Math.abs(obj[key] - targetValue) <= Math.abs(step)) {
         obj[key] = targetValue
         cancelAnimationFrame(self['frameId' + key])
-        reset && setTimeout(() => {
-          obj[key] = oldValue
-          resolve()
-        }, time / 2)
+        resolve()
+        // reset && setTimeout(() => {
+        //   obj[key] = oldValue
+        // }, time / 2)
       }
     })()
   })

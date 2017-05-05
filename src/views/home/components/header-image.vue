@@ -20,6 +20,7 @@
 
 <script>
 import browser from '@/utils/browser'
+import store from '@/store'
 import animationData from '@/utils/animation-data'
 
 export default {
@@ -34,17 +35,35 @@ export default {
 
   computed: {
     isShowRipple () {
-      return !browser.versions.mobile
+      let result = !store.state.messageBoard.isShow && !browser.versions.mobile
+      return result
     }
   },
 
   mounted () {
+    // 延时显示头像
     setTimeout(() => {
       this.show = true
     }, 500)
+    // 触发涟漪
+    setTimeout(() => {
+      this.showSvgRipple({offsetX: 0, offsetY: 0})
+    }, 3000)
+    // 每10秒显示涟漪
+    this.rippleTimeId = setInterval(() => {
+      this.showSvgRipple({offsetX: 0, offsetY: 0})
+    }, 10000)
+  },
+
+  beforeDestroy () {
+    // 定时器
+    window.clearInterval(this.rippleTimeId)
   },
 
   methods: {
+    /**
+     * 显示涟漪动画
+     */
     async showSvgRipple (e) {
       if (!this.isShowRipple) return
       if (this.showingRipple) return
@@ -57,17 +76,25 @@ export default {
       let oldX = e.offsetX
       let oldY = e.offsetY
       let time = 1200
+      // 执行动画
       let setX = animationData.set(turb.attributes.x, 'value', oldX, oldX - width / 2, time)
       let setY = animationData.set(turb.attributes.y, 'value', oldY, oldY - height / 2, time)
       let setW = animationData.set(turb.attributes.width, 'value', 0, width, time)
       let setH = animationData.set(turb.attributes.height, 'value', 0, height, time)
-
+      // 等待动画执行完毕
       await setX
       await setY
       await setW
       await setH
 
-      this.showingRipple = false
+      // 延时还原
+      setTimeout(() => {
+        turb.attributes.x.value = oldX
+        turb.attributes.y.value = oldY
+        turb.attributes.width.value = 0
+        turb.attributes.height.value = 0
+        this.showingRipple = false
+      }, 300)
     }
   }
 }

@@ -29,29 +29,9 @@
 </template>
 
 <script>
+import { NAVS } from '@/config'
 import browser from '@/utils/browser'
-const MENUS = [
-  {
-    name: 'HOME',
-    url: '/home',
-    icon: '&#xe61f;'
-  },
-  {
-    name: 'WORKS',
-    url: '/works',
-    icon: '&#xe68d;'
-  },
-  {
-    name: 'COLLECTION',
-    url: '/collections',
-    icon: '&#xe696;'
-  },
-  {
-    name: 'RESUME',
-    url: '/resume',
-    icon: '&#xe6c4;'
-  }
-]
+
 export default {
   name: 'Topbar',
 
@@ -111,9 +91,9 @@ export default {
       window.clearInterval(this.intervalId)
       if (this.isOpenMenu) {
         this.intervalId = setInterval(() => {
-          let newMenu = MENUS[currentMenus.length]
+          let newMenu = NAVS[currentMenus.length]
           if (!newMenu) return window.clearInterval(this.intervalId)
-          currentMenus.push(MENUS[currentMenus.length])
+          currentMenus.push(NAVS[currentMenus.length])
           this.menus = currentMenus
         }, 100)
       }
