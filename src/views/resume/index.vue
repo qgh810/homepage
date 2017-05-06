@@ -6,7 +6,7 @@
       </div>
 
       <book>
-        <div class="first" slot="first">000</div>
+        <first-page slot="first"/>
         <div class="first" slot="page1">111</div>
         <div class="first" slot="page2">222</div>
         <div class="first" slot="page3">333</div>
@@ -22,10 +22,15 @@
 </template>
 
 <script>
+import FirstPage from './components/first-page'
 // import animationData from '@/utils/animation-data'
 
 export default {
   name: 'Resume',
+
+  components: {
+    FirstPage
+  },
 
   data () {
     return {

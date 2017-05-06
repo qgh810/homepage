@@ -11,6 +11,7 @@
         </div>
       </div>
 
+      <!-- 中间页面 -->
       <div class="page" v-for="n in loopCount"
        :style="getPageStyle(n)"
         >
@@ -42,13 +43,6 @@
       </div>
 
     </div>
-
-    <!-- <div class="control prev-button">
-      <i class="iconfont">&#xe693;</i>
-    </div>
-    <div class="control next-button">
-      <i class="iconfont">&#xe694;</i>
-    </div> -->
   </div>
 </template>
 
@@ -57,22 +51,22 @@ export default {
   name: 'Book',
 
   props: {
+    // 默认页面页码
     defaultPageNumber: {
       type: Number,
-      default: 2
+      default: 1
     }
   },
 
   data () {
     return {
+      // 当前显示的循环次数
       currentShowPageNumber: 1
     }
   },
 
   computed: {
-    /**
-     * page的slot数量
-     */
+    // page的slot数量
     pageSlotCount () {
       let pageNames = Object.keys(this.$slots).filter(slotName => slotName.indexOf('page') === 0)
       let pageSlotCount = pageNames.length
@@ -81,6 +75,7 @@ export default {
       }
       return pageSlotCount
     },
+    // 循环次数
     loopCount () {
       return parseInt(this.pageSlotCount / 2)
     }
@@ -91,6 +86,9 @@ export default {
   },
 
   methods: {
+    /**
+     * 初始化默认页面
+     */
     initPageNumber () {
       // let currentShowPageNumber
       if (this.defaultPageNumber > this.pageSlotCount) {
@@ -125,7 +123,6 @@ export default {
   margin 0 auto
   padding 50px
   box-sizing border-box
-  /*z-index 1*/
   background no-repeat url('~@/assets/images/book-bg.png') center / 900px 600px
 
   .pages-container
@@ -180,6 +177,7 @@ export default {
           font-size 12px
           color #fff
           cursor pointer
+          user-select none
       .front
         border-radius 5px 0 0 5px
         &:after
