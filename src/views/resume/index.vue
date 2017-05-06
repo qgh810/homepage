@@ -7,7 +7,7 @@
 
       <book>
         <first-page slot="first"/>
-        <div class="first" slot="page1">111</div>
+        <page1 slot="page1"/>
         <div class="first" slot="page2">222</div>
         <div class="first" slot="page3">333</div>
         <div class="first" slot="page4">444</div>
@@ -23,13 +23,15 @@
 
 <script>
 import FirstPage from './components/first-page'
+import Page1 from './components/page1'
 // import animationData from '@/utils/animation-data'
 
 export default {
   name: 'Resume',
 
   components: {
-    FirstPage
+    FirstPage,
+    Page1
   },
 
   data () {
