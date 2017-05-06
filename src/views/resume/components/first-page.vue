@@ -6,8 +6,14 @@
     <div class="name-box">
       <span>邱国辉</span>
     </div>
-    <div class="message-box" v-if="isShowMessage">
-      <span>从事前端工作至今<animate-text class="number" :value="workLength" :is-number="true" />天</span>
+    <div class="message-box">
+      <p>
+        <span>WEB前端工程师</span>
+      </p>
+      <p>
+        <!-- <span>从事前端工作至今<animate-text class="number" :value="workLength" :is-number="true" />天</span> -->
+        <span>530784837@qq.com</span>
+      </p>
     </div>
   </div>
 </template>
@@ -23,7 +29,6 @@ export default {
 
   data () {
     return {
-      isShowMessage: false
     }
   },
 
@@ -37,9 +42,6 @@ export default {
   },
 
   mounted () {
-    setTimeout(() => {
-      this.isShowMessage = true
-    }, 2000)
   }
 }
 </script>

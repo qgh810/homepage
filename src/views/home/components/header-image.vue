@@ -1,10 +1,5 @@
 <template>
   <div class="header-image-root">
-    <transition name="header-image-transition">
-      <div class="header-image" v-show="show" @mouseenter="showSvgRipple" @mousedown="showSvgRipple">
-        <img src="~@/assets/images/header-image.jpeg" alt="" width="100%" height="100%">
-      </div>
-    </transition>
     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="svg-filters" v-if="isShowRipple">
 			<defs>
 				<filter id="filter-ripple">
@@ -15,6 +10,12 @@
 				</filter>
 			</defs>
 		</svg>
+    <transition name="header-image-transition">
+      <div class="header-image" v-show="show" @mouseenter="showSvgRipple" @mousedown="showSvgRipple">
+        <img src="~@/assets/images/header-image.jpeg" alt="" width="100%" height="100%">
+      </div>
+    </transition>
+
   </div>
 </template>
 
@@ -119,6 +120,7 @@ export default {
 .svg-filters
   position absolute
   opacity 0
+  z-index -1
 .header-image-transition-enter-active, .header-image-transition-leave-active
   transition all .5s
 .header-image-transition-enter, .header-image-transition-leave-to
