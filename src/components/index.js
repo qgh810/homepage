@@ -3,11 +3,13 @@
 import AnimateText from './animate-text/animate-text'
 import HButton from './button/button'
 import MenuButton from './button/menu-button'
+import Book from './book/book'
 
 const components = {
   AnimateText,
   HButton,
-  MenuButton
+  MenuButton,
+  Book
 }
 
 const install = function (Vue, opts = {}) {
