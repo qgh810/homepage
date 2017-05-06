@@ -1,9 +1,5 @@
 <template>
   <div class="resume-roots">
-    <!-- <div class="header-container">
-      <div class="menu" v-for="menu in menus"><span>{{menu}}</span></div>
-      <div class="title"><span>RESUME</span></div>
-    </div> -->
     <div class="content-container">
       <div class="title" :class="{hide: !isShowTitle}">
         <span>RESUME</span>
@@ -11,18 +7,19 @@
 
       <div class="resume-page-container" @mouseenter="restore" @mouseleave="twist">
         <div class="resume-page">
-          <span v-for="n in 300">{{n}} </span>
+          <div class="resume-page-block">
+            <div class="title"><span>基本信息</span></div>
+          </div>
+          <div class="resume-page-block">
+            <span v-for="n in 100">{{n}} </span>
+          </div>
+          <div class="resume-page-block">
+            <span v-for="n in 100">{{n}} </span>
+          </div>
+          <div class="resume-page-block">
+            <span v-for="n in 100">{{n}} </span>
+          </div>
         </div>
-        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="svg-filters">
-          <defs>
-            <filter id="filter-test">
-              <feImage xlink:href="../static/images/svg-test.png" x="0" y="0" width="700" height="1400" result="ripple"></feImage>
-              <feDisplacementMap xChannelSelector="R" yChannelSelector="G" color-interpolation-filters="sRGB" in="SourceGraphic" in2="ripple" :scale="scale" result="dm" />
-              <feComposite operator="in" in2="ripple"></feComposite>
-              <!-- <feComposite in2="SourceGraphic"></feComposite> -->
-            </filter>
-          </defs>
-        </svg>
       </div>
 
     </div>
@@ -44,7 +41,7 @@ export default {
         '工作经历',
         '自我评价'
       ],
-      scale: 0,
+      scale: 30,
       twisting: false
     }
   },
@@ -90,43 +87,13 @@ export default {
     /*color rgba(255,255,255,0.6)*/
     text-align center
     overflow auto
+    background linear-gradient(0, rgba(255,255,255,0.1), rgba(255, 255, 255, 0.4))
+    background -moz-linear-gradient(rgba(255, 255, 255, 0.4), rgba(255,255,255,0.1))
 
-    /*.header-container
-      position absolute
-      top 0
-      left 0
-      width 100%
-      height 50px
-      background rgba(255,255,255,0.05)
-      text-align center
-      .title
-        display inline-block
-        height 80px
-        line-height 80px
-        font-size 40px
-        color rgba(255,255,255,0.8)
-
-      .menu
-        position absolute
-        left 50%
-        top 0
-        margin-left -50px
-        width 100px
-        height 50px
-        line-height 50px
-        cursor pointer
-        &:nth-child(1)
-          transform translateX(-250%)
-        &:nth-child(2)
-          transform translateX(-150%)
-        &:nth-child(3)
-          transform translateX(150%)
-        &:nth-child(4)
-          transform translateX(250%)*/
     .content-container
       position relative
       width 100%
-      .title
+      &>.title
         margin-top 100px
         font-size 70px
         color transparent
@@ -138,18 +105,51 @@ export default {
           text-shadow 0px 0px 2000px rgba(255,255,255,0.8), 0px 0px 0px rgba(0,0,0,0.3)
           opacity 0
 
-      .resume-page-container
+    .resume-page-container
+      position relative
+      width 1000px
+      overflow hidden
+      margin 0 auto
+      padding 50px
+      box-sizing border-box
+      z-index 1
+      .resume-page
         position relative
-        width 700px
-        overflow hidden
-        margin 0 auto
-        filter url(#filter-test)
-        padding 20px
-        box-sizing border-box
-        .resume-page
+        width 100%
+        background #fff
+        &:before
+        &:after
+          content ''
+          display block
+          position absolute
+          left 0
+          top 0
+          z-index -1
           width 100%
-          background #fff
-          color #000
-          /*background #fff url(../../../static/images/svg-test.png)*/
+          height 100%
+          background #000
+          box-shadow 0px 3px 5px 10px rgba(0,0,0,0.5)
+        &:before
+          transform scale(0.98) rotate(-1deg)
+        &:after
+          transform scale(0.98) rotate(1deg)
+      .resume-page-block
+        position relative
+        width 100%
+        min-height 200px
+        background #fff
+        color #000
+        /*filter url(#filter-test)*/
+        background linear-gradient(0, #eaeae8, #fff)
+        background -moz-linear-gradient(#fff, #eaeae8)
+
+        .title
+          height 50px
+          line-height 70px
+          font-size 35px
+          padding-left 20px
+          box-sizing border-box
+          text-align left
+
 
 </style>
