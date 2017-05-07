@@ -1,5 +1,12 @@
 export const LABELS = [
   {
+    name: 'vue',
+    style: {
+      color: '#009966',
+      fontSize: '24px'
+    }
+  },
+  {
     name: 'html',
     style: {
       color: '#003399',
@@ -60,13 +67,6 @@ export const LABELS = [
     style: {
       color: '#ba49fd',
       fontSize: '16px'
-    }
-  },
-  {
-    name: 'vue',
-    style: {
-      color: '#009966',
-      fontSize: '24px'
     }
   },
   {

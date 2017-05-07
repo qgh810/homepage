@@ -2,7 +2,7 @@
   <div class="page-root">
     <div class="message-box">
       <span>技术栈</span>
-      <p>选中相应技术查看掌握程度</p>
+      <p>已经掌握或者基本掌握的技术名称</p>
     </div>
     <div class="label-wall" @click="shuffle">
       <div class="center-box">
@@ -87,7 +87,7 @@ export default {
       let isCurrentLabel = this.currentLabel === label
       let style = {
         color: label.style.color,
-        fontSize: isCurrentLabel ? '30px' : label.style.fontSize,
+        fontSize: label.style.fontSize,
         left: isCurrentLabel ? '0' : this.positions[index].left,
         top: isCurrentLabel ? '0' : this.positions[index].top
       }
@@ -117,8 +117,10 @@ export default {
     height 80px
     &>span
       font-size 30px
+      color #925b4b
     &>p
       font-size 15px
+      color #999
 
   .label-wall
     position relative
@@ -152,7 +154,7 @@ export default {
       height 30px
       margin-left -60px
       line-height 30px
-      transition all ease .5s
+      transition all ease 0.8s
       &>span
         cursor pointer
       &:hover
