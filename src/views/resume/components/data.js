@@ -1,88 +1,88 @@
 export const LABELS = [
-  // {
-  //   name: 'html',
-  //   style: {
-  //     color: '#003399',
-  //     fontSize: '22px'
-  //   }
-  // },
-  // {
-  //   name: 'html5',
-  //   style: {
-  //     color: '#e84c1a',
-  //     fontSize: '20px'
-  //   }
-  // },
-  // {
-  //   name: 'javascript',
-  //   style: {
-  //     color: '#CC0033',
-  //     fontSize: '20px'
-  //   }
-  // },
-  // {
-  //   name: 'css',
-  //   style: {
-  //     color: '#FF9900',
-  //     fontSize: '20px'
-  //   }
-  // },
-  // {
-  //   name: 'css3',
-  //   style: {
-  //     color: '#27a7e2',
-  //     fontSize: '20px'
-  //   }
-  // },
-  // {
-  //   name: 'stylus',
-  //   style: {
-  //     color: '#2a4f84',
-  //     fontSize: '16px'
-  //   }
-  // },
-  // {
-  //   name: 'es6/es7111111111111',
-  //   style: {
-  //     color: '#f5d42d',
-  //     fontSize: '20px'
-  //   }
-  // },
-  // {
-  //   name: 'jquery',
-  //   style: {
-  //     color: '#555555',
-  //     fontSize: '18px'
-  //   }
-  // },
-  // {
-  //   name: 'zepto',
-  //   style: {
-  //     color: '#ba49fd',
-  //     fontSize: '18px'
-  //   }
-  // },
-  // {
-  //   name: 'vue',
-  //   style: {
-  //     color: '#009966',
-  //     fontSize: '22px'
-  //   }
-  // },
-  // {
-  //   name: 'react-native',
-  //   style: {
-  //     color: '#2cd5ff',
-  //     fontSize: '16px'
-  //   }
-  // },
-  // {
-  //   name: 'node.js',
-  //   style: {
-  //     color: '#92c520',
-  //     fontSize: '14px'
-  //   }
-  // },
+  {
+    name: 'html',
+    style: {
+      color: '#003399',
+      fontSize: '22px'
+    }
+  },
+  {
+    name: 'html5',
+    style: {
+      color: '#e84c1a',
+      fontSize: '20px'
+    }
+  },
+  {
+    name: 'javascript',
+    style: {
+      color: '#CC0033',
+      fontSize: '22px'
+    }
+  },
+  {
+    name: 'css',
+    style: {
+      color: '#FF9900',
+      fontSize: '20px'
+    }
+  },
+  {
+    name: 'css3',
+    style: {
+      color: '#27a7e2',
+      fontSize: '20px'
+    }
+  },
+  {
+    name: 'stylus',
+    style: {
+      color: '#2a4f84',
+      fontSize: '16px'
+    }
+  },
+  {
+    name: 'es6/es7',
+    style: {
+      color: '#f5d42d',
+      fontSize: '18px'
+    }
+  },
+  {
+    name: 'jquery',
+    style: {
+      color: '#555555',
+      fontSize: '16px'
+    }
+  },
+  {
+    name: 'zepto',
+    style: {
+      color: '#ba49fd',
+      fontSize: '16px'
+    }
+  },
+  {
+    name: 'vue',
+    style: {
+      color: '#009966',
+      fontSize: '24px'
+    }
+  },
+  {
+    name: 'react-native',
+    style: {
+      color: '#2cd5ff',
+      fontSize: '18px'
+    }
+  },
+  {
+    name: 'node.js',
+    style: {
+      color: '#92c520',
+      fontSize: '14px'
+    }
+  },
   {
     name: 'github',
     style: {
@@ -101,10 +101,6 @@ export const LABELS = [
 
 export const POSITIONS = [
   {
-    left: '0px',
-    top: '0px'
-  },
-  {
     left: '10px',
     top: '80px'
   },
@@ -115,14 +111,6 @@ export const POSITIONS = [
   {
     left: '-30px',
     top: '140px'
-  },
-  {
-    left: '-120px',
-    top: '30px'
-  },
-  {
-    left: '80px',
-    top: '-10px'
   },
   {
     left: '75px',
@@ -137,35 +125,43 @@ export const POSITIONS = [
     top: '20px'
   },
   {
-    left: '0px',
-    top: '0px'
+    left: '-120px',
+    top: '-3px'
   },
   {
-    left: '0px',
-    top: '0px'
+    left: '-120px',
+    top: '-55px'
   },
   {
-    left: '0px',
-    top: '0px'
+    left: '-70px',
+    top: '55px'
   },
   {
-    left: '0px',
-    top: '0px'
+    left: '70px',
+    top: '-110px'
   },
   {
-    left: '0px',
-    top: '0px'
+    left: '70px',
+    top: '110px'
   },
   {
-    left: '0px',
-    top: '0px'
+    left: '-100px',
+    top: '-120px'
   },
   {
-    left: '0px',
-    top: '0px'
+    left: '-100px',
+    top: '120px'
   },
   {
-    left: '0px',
-    top: '0px'
+    left: '-80px',
+    top: '-30px'
+  },
+  {
+    left: '-120px',
+    top: '30px'
+  },
+  {
+    left: '100px',
+    top: '-10px'
   }
 ]

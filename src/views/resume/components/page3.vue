@@ -1,11 +1,23 @@
 <template>
   <div class="page-root">
+    <div class="message-box">
+      <span>技术栈</span>
+      <p>选中相应技术查看掌握程度</p>
+    </div>
     <div class="label-wall" @click="shuffle">
-      <transition-group name="labels-transition">
-        <div class="label" v-for="(label, index) in labels" :key="label.name" :style="getLabelStyle(label, index)">
+      <div class="center-box">
+        <div
+          class="label"
+          v-for="(label, index) in labels"
+          :key="label"
+          :style="getLabelStyle(label, index)"
+          @click="onSelectLabel(label)">
           <span>{{label.name}}</span>
         </div>
-      </transition-group>
+        <div class="selected-icon">
+
+        </div>
+      </div>
     </div>
 
   </div>
@@ -21,7 +33,8 @@ export default {
   data () {
     return {
       selectedLabel: null,
-      labels: LABELS
+      labels: LABELS,
+      positions: POSITIONS
     }
   },
 
@@ -38,26 +51,45 @@ export default {
 
     currentLabel () {
       return this.selectedLabel || this.labels[0]
+    },
+    currentLabelIndex () {
+      return this.labels.indexOf(this.currentLabel)
     }
   },
 
-  mounted () {
-    console.log(POSITIONS)
+  watch: {
+    currentPageShowwing (val) {
+      val && this.shuffle()
+    }
   },
 
   methods: {
-    shuffle () {
-      this.labels.sort((a, b) => { return Math.random() > 0.5 ? -1 : 1 })
-      console.log(this.labels)
+    /**
+     * 监听选择某个标签
+     */
+    onSelectLabel (label) {
+      this.selectedLabel = label
     },
+
+    /**
+     * 乱序重排
+     */
+    shuffle () {
+      let [...positions] = POSITIONS
+      positions.sort((a, b) => { return Math.random() > 0.5 ? -1 : 1 })
+      this.positions = positions
+    },
+
     /**
      * 计算当前label的style
      */
     getLabelStyle (label, index) {
+      let isCurrentLabel = this.currentLabel === label
       let style = {
         color: label.style.color,
-        fontSize: index === 0 ? '30px' : label.style.fontSize
-        // transform: `translate(${POSITIONS[index].left}, ${POSITIONS[index].top})`
+        fontSize: isCurrentLabel ? '30px' : label.style.fontSize,
+        left: isCurrentLabel ? '0' : this.positions[index].left,
+        top: isCurrentLabel ? '0' : this.positions[index].top
       }
       return style
     }
@@ -74,40 +106,56 @@ export default {
   text-align center
   color #413c38
   user-select none
+  padding-top 80px
+  box-sizing border-box
+
+  .message-box
+    position absolute
+    top 0
+    left 0
+    width 100%
+    height 80px
+    &>span
+      font-size 30px
+    &>p
+      font-size 15px
 
   .label-wall
     position relative
     width 100%
     height 100%
     text-align center
-    /*.center-box
+
+    .center-box
       position absolute
       top 50%
       left 50%
-      transform translate(-50%, -50%)
-      width 120px
-      height 120px
-      line-height 120px
+      transform translate(0, -50%)
+      width 30px
+      height 30px
       border-radius 50%
-      border 1px solid #000
-      transition all ease 1s*/
+      transition all ease 1s
+      text-align center
+      .selected-icon
+        position absolute
+        top 35px
+        left -6px
+        width 0px
+        height 0px
+        border-left 6px solid transparent
+        border-right 6px solid transparent
+        border-bottom 6px solid #925b4b
     .label
-      /*position absolute*/
-      /*left 50%
-      top 50%*/
+      position absolute
+      display inline-block
       width 120px
       height 30px
+      margin-left -60px
       line-height 30px
-      /*margin-left -60px
-      margin-top -15px*/
-      transition all ease 1s
-
-
-/*.labels-transition-move
-  transition all 1s*/
-.labels-transition-enter, .labels-transition-leave-to
-  opacity 0.5
-.labels-transition-leave-active
-  transition all 2s
-
+      transition all ease .5s
+      &>span
+        cursor pointer
+      &:hover
+        text-decoration underline
+        /*font-weight bold*/
 </style>
