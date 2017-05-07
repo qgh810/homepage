@@ -9,7 +9,7 @@
         <page1 slot="page1"/>
         <page2 slot="page2"/>
         <page3 slot="page3"/>
-        <div class="first" slot="page4">444</div>
+        <page4 slot="page4"/>
         <div class="first" slot="page5">555</div>
         <div class="first" slot="page6">666</div>
         <div class="first" slot="page7">777</div>
@@ -27,6 +27,7 @@
 import Page1 from './components/page1'
 import Page2 from './components/page2'
 import Page3 from './components/page3'
+import Page4 from './components/page4'
 // import animationData from '@/utils/animation-data'
 
 export default {
@@ -35,7 +36,8 @@ export default {
   components: {
     Page1,
     Page2,
-    Page3
+    Page3,
+    Page4
   },
 
   data () {

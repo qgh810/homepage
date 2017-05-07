@@ -17,43 +17,13 @@
 </template>
 
 <script>
+import { MESSAGES } from './data'
 export default {
   name: 'Page2',
 
   data () {
     return {
-      messages: [
-        {
-          title: '出生年月',
-          content: '1991.12',
-          icon: '&#xf010f;'
-        },
-        {
-          title: '学历',
-          content: '大学本科',
-          icon: '&#xe607;'
-        },
-        {
-          title: '籍贯',
-          content: '广东汕头',
-          icon: '&#xe619;'
-        },
-        {
-          title: '目前所在地',
-          content: '广东广州',
-          icon: '&#xe617;'
-        },
-        {
-          title: '电子邮箱',
-          content: '530784837@qq.com',
-          icon: '&#xe640;'
-        },
-        {
-          title: 'github',
-          content: 'https://github.com/qgh810',
-          icon: '&#xe735;'
-        }
-      ]
+      messages: MESSAGES
     }
   }
 }
