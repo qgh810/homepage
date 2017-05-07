@@ -61,7 +61,7 @@ export default {
   data () {
     return {
       // 当前显示的纸张次数
-      currentShowPageCount: 1
+      currentShowPageCount: 0
     }
   },
 
@@ -82,22 +82,33 @@ export default {
   },
 
   mounted () {
-    this.initPageNumber()
+    this.playInitAnimation()
   },
 
   methods: {
     /**
-     * 初始化默认页面
+     * 播放初始化动画
      */
-    initPageNumber () {
-      // let currentShowPageCount
+    playInitAnimation () {
+      // 检测传入参数
       if (this.defaultPageNumber > this.pageSlotCount) {
         return console.warn(`默认页码${this.defaultPageNumber}不合法, 超过页面总数`)
       }
       if (this.defaultPageNumber < 1) {
         return console.warn(`默认页码${this.defaultPageNumber}不合法, 超过页面总数`)
       }
-      this.currentShowPageCount = parseInt((this.defaultPageNumber + 1) / 2)
+      /* ****开始动画******/
+      // 目标位置
+      let targetPageCount = parseInt((this.defaultPageNumber + 1) / 2)
+      // 翻到最后一页
+      this.currentShowPageCount = parseInt((this.pageSlotCount + 1) / 2)
+      // 设置定时器往回翻页
+      this.playInitAnimationTid = setInterval(() => {
+        this.currentShowPageCount--
+        if (this.currentShowPageCount === targetPageCount) {
+          window.clearInterval(this.playInitAnimationTid)
+        }
+      }, 300)
     },
     /**
      * 获取页面样式
