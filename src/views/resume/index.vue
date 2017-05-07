@@ -5,15 +5,15 @@
         <span>RESUME</span>
       </div>
 
-      <book>
-        <first-page slot="first"/>
+      <book :defaultPageNumber="3">
         <page1 slot="page1"/>
-        <div class="first" slot="page2">222</div>
-        <div class="first" slot="page3">333</div>
+        <page2 slot="page2"/>
+        <page3 slot="page3"/>
         <div class="first" slot="page4">444</div>
         <div class="first" slot="page5">555</div>
         <div class="first" slot="page6">666</div>
-        <div class="first" slot="last">...</div>
+        <div class="first" slot="page7">777</div>
+        <div class="first" slot="page8">888</div>
       </book>
 
 
@@ -22,16 +22,18 @@
 </template>
 
 <script>
-import FirstPage from './components/first-page'
 import Page1 from './components/page1'
+import Page2 from './components/page2'
+import Page3 from './components/page3'
 // import animationData from '@/utils/animation-data'
 
 export default {
   name: 'Resume',
 
   components: {
-    FirstPage,
-    Page1
+    Page1,
+    Page2,
+    Page3
   },
 
   data () {

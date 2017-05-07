@@ -5,29 +5,29 @@
       <!-- 第一页 -->
       <div class="page" :style="{ transform: 'rotateY(0deg)' }">
         <div class="front">
-          <slot name="first">
+          <slot name="page1">
             首页
           </slot>
         </div>
       </div>
 
       <!-- 中间页面 -->
-      <div class="page" v-for="n in loopCount"
+      <div class="page" v-for="n in pageCount"
        :style="getPageStyle(n)"
         >
         <div class="front">
-          <slot :name="`page${n * 2}`">
+          <slot :name="`page${n * 2 + 1}`">
             页码{{n * 2}}
           </slot>
-          <div class="control" @click="currentShowPageNumber--">
+          <div class="control" @click="currentShowPageCount--">
             <span>prev</span>
           </div>
         </div>
         <div class="back">
-          <slot :name="`page${n * 2 - 1}`">
+          <slot :name="`page${n * 2}`">
             页码{{n * 2 -1}}
           </slot>
-          <div class="control" @click="currentShowPageNumber++">
+          <div class="control" @click="currentShowPageCount++">
             <span>next</span>
           </div>
         </div>
@@ -36,7 +36,7 @@
       <!-- 最后一页 -->
       <div class="page" :style="{ transform: 'rotateY(180deg)' }">
         <div class="back">
-          <slot name="last">
+          <slot :name="`page${pageSlotCount}`">
             尾页
           </slot>
         </div>
@@ -60,8 +60,8 @@ export default {
 
   data () {
     return {
-      // 当前显示的循环次数
-      currentShowPageNumber: 1
+      // 当前显示的纸张次数
+      currentShowPageCount: 1
     }
   },
 
@@ -75,9 +75,9 @@ export default {
       }
       return pageSlotCount
     },
-    // 循环次数
-    loopCount () {
-      return parseInt(this.pageSlotCount / 2)
+    // 纸张数 - 1
+    pageCount () {
+      return parseInt((this.pageSlotCount - 2) / 2)
     }
   },
 
@@ -90,22 +90,22 @@ export default {
      * 初始化默认页面
      */
     initPageNumber () {
-      // let currentShowPageNumber
+      // let currentShowPageCount
       if (this.defaultPageNumber > this.pageSlotCount) {
         return console.warn(`默认页码${this.defaultPageNumber}不合法, 超过页面总数`)
       }
       if (this.defaultPageNumber < 1) {
         return console.warn(`默认页码${this.defaultPageNumber}不合法, 超过页面总数`)
       }
-      this.currentShowPageNumber = parseInt((this.defaultPageNumber + 2) / 2)
+      this.currentShowPageCount = parseInt((this.defaultPageNumber + 1) / 2)
     },
     /**
      * 获取页面样式
      */
     getPageStyle (pageNumber) {
       let transform = ''
-      if (pageNumber >= this.currentShowPageNumber) {
-        transform = `rotateY(${179 - (this.loopCount - pageNumber) / 10}deg)`
+      if (pageNumber >= this.currentShowPageCount) {
+        transform = `rotateY(${179 - (this.pageCount - pageNumber) / 10}deg)`
       } else {
         transform = `rotateY(${pageNumber / 10}deg)`
       }
