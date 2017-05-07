@@ -108,7 +108,7 @@ export default {
         if (this.currentShowPageCount === targetPageCount) {
           window.clearInterval(this.playInitAnimationTid)
         }
-      }, 300)
+      }, 150)
     },
     /**
      * 获取页面样式

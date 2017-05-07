@@ -5,7 +5,7 @@
         <span>RESUME</span>
       </div>
 
-      <book :defaultPageNumber="3">
+      <book v-if="isShowBook" :defaultPageNumber="3">
         <page1 slot="page1"/>
         <page2 slot="page2"/>
         <page3 slot="page3"/>
@@ -41,6 +41,7 @@ export default {
   data () {
     return {
       isShowTitle: false,
+      isShowBook: false,
       menus: [
         '基本信息',
         '专业技能',
@@ -54,6 +55,9 @@ export default {
     setTimeout(() => {
       this.isShowTitle = true
     }, 200)
+    setTimeout(() => {
+      this.isShowBook = true
+    }, 1000)
 
     // setInterval(() => {
     //   this.currentShowPageNumber++

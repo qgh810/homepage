@@ -59,7 +59,13 @@ export default {
 
   watch: {
     currentPageShowwing (val) {
-      val && this.shuffle()
+      if (val) {
+        this.initAnimationTid = setTimeout(() => {
+          this.shuffle()
+        }, 300)
+      } else {
+        window.clearInterval(this.initAnimationTid)
+      }
     }
   },
 
