@@ -1,7 +1,7 @@
 <template>
   <div class="page-root">
     <div class="container-box logo-box">
-      <div class="logo" :class="selectLabel"></div>
+      <div class="logo" :class="logoClassName"></div>
     </div>
     <div class="container-box name-box"> <span>{{selectLabel}}</span> </div>
     <div class="container-box text-box">
@@ -39,6 +39,9 @@ export default {
     },
     currentLabelMessage () {
       return LABEL_DETAILS[this.selectLabel]
+    },
+    logoClassName () {
+      return this.selectLabel.split('/')[0].split('.')[0]
     }
   },
 
@@ -94,7 +97,7 @@ export default {
     .logo
       width 100%
       height 100%
-      background center top / 100%
+      background no-repeat center top / 100%
   .name-box
     line-height 30px
     font-size 25px
@@ -121,5 +124,22 @@ export default {
     background-image url('~@/assets/images/logos/css.png')
   .logo.css3
     background-image url('~@/assets/images/logos/css3.png')
-
+  .logo.photoshop
+    background-image url('~@/assets/images/logos/photoshop.png')
+  .logo.stylus
+    background-image url('~@/assets/images/logos/stylus.png')
+  .logo.es6
+    background-image url('~@/assets/images/logos/es6.png')
+  .logo.zepto
+    background-image url('~@/assets/images/logos/zepto.png')
+  .logo.react-native
+    background-image url('~@/assets/images/logos/react-native.png')
+  .logo.echarts
+    background-image url('~@/assets/images/logos/echarts.png')
+  .logo.node
+    background-image url('~@/assets/images/logos/node.png')
+  .logo.github
+    background-image url('~@/assets/images/logos/github.png')
+  .logo.webpack
+    background-image url('~@/assets/images/logos/webpack.png')
 </style>

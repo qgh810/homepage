@@ -218,7 +218,7 @@ export const LABEL_DETAILS = {
     message: '了解<br>曾用react-native + mobx的形式开发过简单的app'
   },
   'echarts': {
-    message: '基本掌握<br>以往工作曾大量使用'
+    message: '基本掌握<br>以往工作曾大量使用<br>熟悉其使用方法'
   },
   'node.js': {
     message: '了解<br>能使用Node编写简单restful接口<br>能编写自己的命令行工具<br>能进行基本的文件操作<br>能编写简单爬虫'
