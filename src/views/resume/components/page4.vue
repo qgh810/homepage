@@ -11,17 +11,14 @@
 </template>
 
 <script>
+import { LABEL_DETAILS } from './data'
 const PAGE_NUMBER = 4
 export default {
   name: 'Page' + PAGE_NUMBER,
 
   data () {
     return {
-      isShowText: false,
-      currentLabelMessage: {
-        score: 4.5,
-        message: 'vuevuevuevuevue'
-      }
+      isShowText: false
     }
   },
 
@@ -39,6 +36,9 @@ export default {
     selectLabel () {
       let result = this.$parent.$slots.page3[0].componentInstance.currentLabel.name
       return result
+    },
+    currentLabelMessage () {
+      return LABEL_DETAILS[this.selectLabel]
     }
   },
 
@@ -102,11 +102,24 @@ export default {
   .text-box
     width 100%
     height 120px
-    padding 20px
+    line-height 32px
+    padding-top 20px
+    padding-left 30px
     box-sizing border-box
     color #999
+    font-size 15px
 
   .logo.vue
     background-image url('~@/assets/images/logos/vue.png')
+  .logo.html
+    background-image url('~@/assets/images/logos/html.png')
+  .logo.html5
+    background-image url('~@/assets/images/logos/html5.png')
+  .logo.javascript
+    background-image url('~@/assets/images/logos/javascript.png')
+  .logo.css
+    background-image url('~@/assets/images/logos/css.png')
+  .logo.css3
+    background-image url('~@/assets/images/logos/css3.png')
 
 </style>
