@@ -14,9 +14,7 @@
           @click="onSelectLabel(label)">
           <span>{{label.name}}</span>
         </div>
-        <div class="selected-icon">
-
-        </div>
+        <div class="selected-icon"></div>
       </div>
     </div>
 

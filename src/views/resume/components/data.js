@@ -42,6 +42,13 @@ export const LABELS = [
     }
   },
   {
+    name: 'photoshop',
+    style: {
+      color: '#2a2659',
+      fontSize: '18px'
+    }
+  },
+  {
     name: 'stylus',
     style: {
       color: '#2a4f84',
@@ -73,6 +80,13 @@ export const LABELS = [
     name: 'react-native',
     style: {
       color: '#2cd5ff',
+      fontSize: '18px'
+    }
+  },
+  {
+    name: 'echarts',
+    style: {
+      color: '#a9334c',
       fontSize: '18px'
     }
   },
