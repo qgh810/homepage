@@ -5,10 +5,10 @@
       <menu-button :open="isOpenMenu" @changed="toggleMenuState"/>
     </div>
     <!-- 导航列表 -->
-    <transition name="menu-container-transition" >
+    <transition name="menu-container-transition">
       <div class="menu-container" v-show="isOpenMenu" :class="{open: isOpenMenu}" @mouseleave="onMenuMouseLeave">
-        <nav class="menus">
-          <transition-group name="menu-transition">
+        <div class="menus">
+          <transition-group name="menu-transition" tag="nav">
             <div
               class="menu"
               :class="`filter-${moveFilterStyle}`"
@@ -22,7 +22,7 @@
             </div>
           </transition-group>
         </div>
-      </nav>
+      </div>
     </transition>
 
   </div>
@@ -76,6 +76,7 @@ export default {
   },
 
   mounted () {
+    this.toggleMenuState(true)
   },
 
   methods: {
