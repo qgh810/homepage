@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!-- 头部 -->
-    <topbar />
+    <topbar/>
     <!-- 主路由挂载点 -->
     <transition name="page-transition" mode="in-out">
       <router-view />

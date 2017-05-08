@@ -1,5 +1,5 @@
-import { SHOW_MESSAGE_BOARD, HIDE_MESSAGE_BOARD } from '../mutation-types'
-import * as actions from '../actions/message-board'
+import { SHOW_REWARD_QR_CODE, HIDE_REWARD_QR_CODE } from '../mutation-types'
+import * as actions from '../actions/reward-qr-code'
 
 // 状态初始化
 var state = {
@@ -8,11 +8,11 @@ var state = {
 
 // 状态变化
 const mutations = {
-  [SHOW_MESSAGE_BOARD] (state) {
+  [SHOW_REWARD_QR_CODE] (state) {
     state.isShow = true
   },
 
-  [HIDE_MESSAGE_BOARD] (state) {
+  [HIDE_REWARD_QR_CODE] (state) {
     state.isShow = false
   }
 }

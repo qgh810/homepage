@@ -3,6 +3,9 @@
     <div class="icon-box message" @click="onMessageButtonClick">
       <i class="iconfont">&#xe6a7;</i>
     </div>
+    <div class="icon-box reward" @click="onRewardButtonClick">
+      <i class="iconfont">&#xe66e;</i>
+    </div>
   </div>
 </template>
 
@@ -26,6 +29,10 @@ export default {
   methods: {
     onMessageButtonClick () {
       store.dispatch('showMessageBoard')
+    },
+
+    onRewardButtonClick () {
+      // store.dispatch('showMessageBoard')
     }
   }
 }
@@ -51,8 +58,12 @@ icon-size = 40px
     background rgba(255,255,255,0.1)
     text-align center
     cursor pointer
+    margin-top 10px
+
     .iconfont
       font-size 20px
-      line-height 45px
+      line-height 40px
       color rgba(255,255,255,0.7)
+    &.message
+      line-height 45px
 </style>
