@@ -76,7 +76,6 @@ export default {
   },
 
   mounted () {
-    this.toggleMenuState(true)
   },
 
   methods: {
