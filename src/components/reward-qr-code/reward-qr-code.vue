@@ -9,8 +9,7 @@
           <span>如果觉得我的网站对您有用，请随意打赏。<br>您的支持将鼓励我继续创作！</span>
         </div>
         <div class="qr-code-box">
-          <div class="qr-code wechat"></div>
-          <div class="qr-code alipay"></div>
+          <div class="qr-code" :class="payType"></div>
         </div>
         <div class="toggle-button">
           按钮
@@ -27,7 +26,9 @@ export default {
   name: 'RewardQRCode',
 
   data () {
-    return {}
+    return {
+      payType: 'wechat'
+    }
   },
 
   computed: {
@@ -39,6 +40,9 @@ export default {
   mounted () {},
 
   methods: {
+    togglePayType () {
+      this.payType = this.payType === 'wechat' ? 'alipay' : 'wechat'
+    },
     hideQRCode () {
       store.dispatch('hideQRCode')
     }
@@ -80,10 +84,21 @@ export default {
     color #999
     line-height 30px
   .qr-code-box
+    position relative
     margin 15px auto 20px
     width 200px
     height 200px
     background #000
+    .qr-code
+      position absolute
+      width 100%
+      height 100%
+      background #fff no-repeat top center / 100%
+
+    .wechat
+      background-image url('~@/assets/images/wechat.jpg')
+    .alipay
+      background-image url('~@/assets/images/ali.jpg')
 
 
 .reward-qr-code-transition-enter-active, .reward-qr-code-transition-leave-active
