@@ -10,6 +10,8 @@
     <float-buttons/>
     <!-- 留言板 -->
     <message-board/>
+
+    <reward-q-r-code/>
     <!-- svg样式定义, 不在页面显示内容 -->
     <!-- <svg-filter/> -->
   </div>
@@ -20,6 +22,7 @@ import Topbar from '@/components/topbar/topbar'
 import SvgFilter from '@/components/svg-filter/svg-filter'
 import FloatButtons from '@/components/float-buttons/float-buttons'
 import MessageBoard from '@/components/message-board/message-board'
+import RewardQRCode from '@/components/reward-qr-code/reward-qr-code'
 
 export default {
   name: 'app',
@@ -28,7 +31,8 @@ export default {
     Topbar,
     SvgFilter,
     FloatButtons,
-    MessageBoard
+    MessageBoard,
+    RewardQRCode
   }
 }
 </script>

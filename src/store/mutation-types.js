@@ -12,4 +12,4 @@ export const HIDE_MESSAGE_BOARD = '隐藏留言板'
 export const SHOW_REWARD_QR_CODE = '显示打赏二维码'
 
 // 隐藏留言板
-export const HIDE_REWARD_QR_CODE = '显示打赏二维码'
+export const HIDE_REWARD_QR_CODE = '隐藏打赏二维码'

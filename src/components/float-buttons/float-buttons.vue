@@ -32,7 +32,7 @@ export default {
     },
 
     onRewardButtonClick () {
-      // store.dispatch('showMessageBoard')
+      store.dispatch('showQRCode')
     }
   }
 }
