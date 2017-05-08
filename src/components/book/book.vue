@@ -165,6 +165,7 @@ export default {
         width 100%
         height 100%
         background #f8f8f3
+        /*background #f8f8f3 no-repeat url('~@/assets/images/page-bg.jpg') top center / 100%*/
         color #1f1f1f
         padding 30px
         box-sizing border-box

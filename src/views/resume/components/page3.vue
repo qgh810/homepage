@@ -153,14 +153,14 @@ export default {
         border-bottom 6px solid #925b4b
     .label
       position absolute
-      display inline-block
+      display inline
       width 120px
       height 30px
       margin-left -60px
       line-height 30px
       transition all ease 0.8s
-      &>span
-        cursor pointer
+      cursor default
+      /*&>span*/
       &:hover
         text-decoration underline
         /*font-weight bold*/

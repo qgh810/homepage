@@ -1,6 +1,6 @@
 <template>
   <div class="header-image-root">
-    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="svg-filters" v-if="isShowRipple">
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="svg-filters" v-if="canShowRipple">
 			<defs>
 				<filter id="filter-ripple">
 					<feImage xlink:href="../static/images/ripple.png" x="30" y="20" width="0" height="0" result="ripple"></feImage>
@@ -12,7 +12,7 @@
 		</svg>
     <transition name="header-image-transition">
       <div class="header-image" v-show="show" @mouseenter="showSvgRipple" @mousedown="showSvgRipple">
-        <img src="~@/assets/images/header-image2.jpg" alt="头像" width="100%" height="100%">
+        <img src="~@/assets/images/header-image2.jpg" alt="header-image" width="100%" height="100%">
       </div>
     </transition>
 
@@ -35,7 +35,8 @@ export default {
   },
 
   computed: {
-    isShowRipple () {
+    // 是否允许显示涟漪
+    canShowRipple () {
       let result = !store.state.messageBoard.isShow && !browser.versions.mobile
       return result
     }
@@ -66,7 +67,7 @@ export default {
      * 显示涟漪动画
      */
     async showSvgRipple (e) {
-      if (!this.isShowRipple) return
+      if (!this.canShowRipple) return
       if (this.showingRipple) return
       this.showingRipple = true
 

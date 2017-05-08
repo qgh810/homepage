@@ -16,7 +16,7 @@
               :key="menu.name"
               >
               <router-link :to="menu.url">
-                <!-- <i class="iconfont" v-html="menu.icon"></i> -->
+                <i class="iconfont" v-html="menu.icon"></i>
                 {{menu.name}}
               </router-link>
             </div>
