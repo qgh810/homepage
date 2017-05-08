@@ -12,7 +12,7 @@
 		</svg>
     <transition name="header-image-transition">
       <div class="header-image" v-show="show" @mouseenter="showSvgRipple" @mousedown="showSvgRipple">
-        <img src="~@/assets/images/header-image2.jpg" alt="" width="100%" height="100%">
+        <img src="~@/assets/images/header-image2.jpg" alt="头像" width="100%" height="100%">
       </div>
     </transition>
 

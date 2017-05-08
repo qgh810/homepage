@@ -7,7 +7,7 @@
     <!-- 导航列表 -->
     <transition name="menu-container-transition" >
       <div class="menu-container" v-show="isOpenMenu" :class="{open: isOpenMenu}" @mouseleave="onMenuMouseLeave">
-        <div class="menus">
+        <nav class="menus">
           <transition-group name="menu-transition">
             <div
               class="menu"
@@ -22,7 +22,7 @@
             </div>
           </transition-group>
         </div>
-      </div>
+      </nav>
     </transition>
 
   </div>
