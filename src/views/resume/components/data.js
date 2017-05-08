@@ -1,3 +1,4 @@
+// 技术标签
 export const LABELS = [
   {
     name: 'vue',
@@ -112,7 +113,7 @@ export const LABELS = [
     }
   }
 ]
-
+// 标签位置
 export const POSITIONS = [
   {
     left: '10px',
@@ -179,7 +180,7 @@ export const POSITIONS = [
     top: '-10px'
   }
 ]
-
+// 技术标签详情
 export const LABEL_DETAILS = {
   'vue': {
     message: '熟练掌握vue及其全家桶<br>从2015年使用至今<br>熟悉vue1.0以及2.0以及其差异<br>能独立开发可拓展可维护组件<br>已经有一个相对完备的vue组件库'
@@ -230,7 +231,7 @@ export const LABEL_DETAILS = {
     message: '基本掌握<br>日常开发都是用webpack搭建项目'
   }
 }
-
+// 基本信息
 export const MESSAGES = [
   {
     title: '出生年月',

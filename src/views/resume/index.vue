@@ -1,10 +1,11 @@
 <template>
   <div class="resume-roots">
     <div class="content-container">
+      <!-- 标题 -->
       <div class="title" :class="{hide: !isShowTitle}">
         <span>RESUME</span>
       </div>
-
+      <!-- 书本组件 -->
       <book v-if="isShowBook" :defaultPageNumber="3">
         <page1 slot="page1"/>
         <page2 slot="page2"/>
@@ -17,7 +18,6 @@
         <div slot="page9"></div>
         <div slot="page10"></div>
       </book>
-
 
     </div>
   </div>
@@ -43,13 +43,7 @@ export default {
   data () {
     return {
       isShowTitle: false,
-      isShowBook: false,
-      menus: [
-        '基本信息',
-        '专业技能',
-        '工作经历',
-        '自我评价'
-      ]
+      isShowBook: false
     }
   },
 
@@ -60,13 +54,6 @@ export default {
     setTimeout(() => {
       this.isShowBook = true
     }, 1000)
-
-    // setInterval(() => {
-    //   this.currentShowPageNumber++
-    //   if (this.currentShowPageNumber === 4) {
-    //     this.currentShowPageNumber = 1
-    //   }
-    // }, 2000)
   }
 }
 </script>
@@ -98,8 +85,5 @@ export default {
           transfrom scale(1.2)
           text-shadow 0px 0px 2000px rgba(255,255,255,0.8), 0px 0px 0px rgba(0,0,0,0.3)
           opacity 0
-
-
-
 
 </style>
