@@ -6,7 +6,18 @@
 
 <script>
 export default {
-  name: 'Works'
+  name: 'Works',
+
+  data () {
+    return {
+      group: [
+        '文档',
+        '干货',
+        '工具库',
+        '鉴赏'
+      ]
+    }
+  }
 }
 </script>
 

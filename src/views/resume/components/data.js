@@ -256,7 +256,7 @@ export const MESSAGES = [
   {
     title: '电子邮箱',
     content: '530784837@qq.com',
-    icon: '&#xe640;'
+    icon: '&#xe642;'
   },
   {
     title: 'github',

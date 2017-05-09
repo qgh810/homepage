@@ -10,7 +10,7 @@
             <animate-text :value="message.descriptions" :time="1000" />
           </p>
           <p>
-            <h-button class="link" @click.native="goGitbug(message.github)">github</h-button>
+            <h-button class="link" @click.native="goGitbug(message.github)"><i class="iconfont">&#xe735;</i> &nbsp;github</h-button>
           </p>
         </div>
       </div>

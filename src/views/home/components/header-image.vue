@@ -54,7 +54,7 @@ export default {
     // 每10秒显示涟漪
     this.rippleTimeId = setInterval(() => {
       this.showSvgRipple({offsetX: 0, offsetY: 0})
-    }, 10000)
+    }, 15000)
   },
 
   beforeDestroy () {
