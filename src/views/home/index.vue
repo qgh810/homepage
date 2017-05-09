@@ -4,7 +4,7 @@
     <div class="content-container">
       <header-image />
       <div class="text-box">
-        <p class="name">{{message.name}}</p>
+        <h1 class="name">{{message.name}}</h1>
         <div class="description">
           <p>
             <animate-text :value="message.descriptions" :time="1000" />
@@ -71,6 +71,7 @@ text-color = rgba(255,255,255,0.5)
       margin-top 20px
       font-size 18px
       text-shadow 2px 2px 2px rgba(0,0,0,0.5)
+      font-weight 200
 
     .description
       font-size 12px

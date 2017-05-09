@@ -8,7 +8,7 @@ export const NAVS = [
   },
   {
     // name: 'NOTES',
-    name: '开发笔记',
+    name: '撸码笔记',
     url: '/notes',
     icon: '&#xe616;'
   },
@@ -20,7 +20,7 @@ export const NAVS = [
   },
   {
     // name: 'COLLECTION',
-    name: '收藏和鉴赏',
+    name: '我的收藏',
     url: '/collections',
     icon: '&#xe696;'
   },

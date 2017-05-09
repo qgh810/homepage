@@ -4,6 +4,7 @@ import Router from 'vue-router'
 import Home from '@/views/home/index'
 import Works from '@/views/works/index'
 import Collections from '@/views/collections/index'
+import CollectionList from '@/views/collections/lists'
 import Resume from '@/views/resume/index'
 
 Vue.use(Router)
@@ -24,7 +25,17 @@ export default new Router({
     },
     {
       path: '/collections',
-      component: Collections
+      component: Collections,
+      children: [
+        {
+          path: '',
+          redirect: 'article'
+        },
+        {
+          path: ':type',
+          component: CollectionList
+        }
+      ]
     },
     {
       path: '/resume',
