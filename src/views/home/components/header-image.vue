@@ -37,7 +37,7 @@ export default {
   computed: {
     // 是否允许显示涟漪
     canShowRipple () {
-      let result = !store.state.messageBoard.isShow && !browser.versions.mobile
+      let result = !store.state.messageBoard.isShow && !store.state.rewardQRCode.isShow && !browser.versions.mobile
       return result
     }
   },
@@ -52,9 +52,9 @@ export default {
       this.showSvgRipple({offsetX: 0, offsetY: 0})
     }, 3000)
     // 每10秒显示涟漪
-    this.rippleTimeId = setInterval(() => {
-      this.showSvgRipple({offsetX: 0, offsetY: 0})
-    }, 15000)
+    // this.rippleTimeId = setInterval(() => {
+    //   this.showSvgRipple({offsetX: 0, offsetY: 0})
+    // }, 15000)
   },
 
   beforeDestroy () {
