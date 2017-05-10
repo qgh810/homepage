@@ -7,6 +7,7 @@
     <!-- 导航列表 -->
     <transition name="menu-container-transition">
       <div class="menu-container" v-show="isOpenMenu" :class="{open: isOpenMenu}" @mouseleave="onMenuMouseLeave">
+        <header-image/>
         <div class="menus">
           <transition-group name="menu-transition" tag="nav">
             <div
@@ -29,11 +30,16 @@
 </template>
 
 <script>
+import HeaderImage from '@/components/header-image/header-image'
 import { NAVS } from '@/config'
 import browser from '@/utils/browser'
 
 export default {
   name: 'Topbar',
+
+  components: {
+    HeaderImage
+  },
 
   data () {
     return {
@@ -76,6 +82,7 @@ export default {
   },
 
   mounted () {
+    // this.toggleMenuState(true)
   },
 
   methods: {
@@ -158,13 +165,14 @@ export default {
       overflow auto
       color rgba(255,255,255,0.8)
       overflow hidden
+      margin-top 50px
       .menu
         box-sizing border-box
-        padding-left 30px
+        padding-left 50px
         width 100%
         height 60px
         line-height 60px
-        font-size 20px
+        font-size 18px
         text-align left
         text-shadow 2px 2px 1px rgba(0,0,0,0.3)
         transition all ease 0.3s
@@ -174,14 +182,15 @@ export default {
         &:hover
           /*background rgba(255,255,255,0.1)*/
           color rgba(255,255,255,0.9)
-          padding-left 33px
+          padding-left 53px
 
         &>a
           text-decoration none
           color inherit
           transition all ease 0.3s
-        .router-link-active
           opacity 0.5
+        .router-link-active
+          opacity 1
     /*.open
       .menu
         filter blur(0)

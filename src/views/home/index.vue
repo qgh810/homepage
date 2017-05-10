@@ -1,8 +1,9 @@
 <template>
   <div class="home-root">
-    <background></background>
+    <background/>
     <div class="content-container">
-      <header-image />
+      <!-- <header-image /> -->
+      <logo/>
       <div class="text-box">
         <h1 class="name">{{message.name}}</h1>
         <div class="description">
@@ -19,14 +20,12 @@
 </template>
 
 <script>
-import HeaderImage from './components/header-image'
 import Background from './components/background'
 
 export default {
   name: 'Home',
 
   components: {
-    HeaderImage,
     Background
   },
 
@@ -55,7 +54,7 @@ text-color = rgba(255,255,255,0.5)
   width 100%
   height 100%
   position relative
-  padding 22vh 10vw
+  padding 15vh 10vw
   box-sizing border-box
   color text-color
   .content-container

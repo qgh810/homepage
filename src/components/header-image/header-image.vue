@@ -29,7 +29,7 @@ export default {
 
   data () {
     return {
-      show: false,
+      show: true,
       showingRipple: false
     }
   },
@@ -44,13 +44,13 @@ export default {
 
   mounted () {
     // 延时显示头像
-    setTimeout(() => {
-      this.show = true
-    }, 500)
+    // setTimeout(() => {
+    //   this.show = true
+    // }, 500)
     // 触发涟漪
-    setTimeout(() => {
-      this.showSvgRipple({offsetX: 0, offsetY: 0})
-    }, 3000)
+    // setTimeout(() => {
+    //   this.showSvgRipple({offsetX: 0, offsetY: 0})
+    // }, 3000)
     // 每10秒显示涟漪
     // this.rippleTimeId = setInterval(() => {
     //   this.showSvgRipple({offsetX: 0, offsetY: 0})
@@ -105,14 +105,14 @@ export default {
 <style lang="stylus" scoped>
 .header-image-root
   margin 0 auto
-  width 25vh
-  height 25vh
+  width 130px
+  height 130px
   filter url(#filter-ripple)
   overflow visible
 .header-image
   width 100%
   height 100%
-  border 5px solid rgba(255,255,255,1)
+  border 3px solid rgba(255,255,255,1)
   border-radius 50%
   box-shadow 2px 2px 5px 5px rgba(0,0,0,0.1)
   overflow hidden

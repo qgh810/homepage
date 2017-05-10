@@ -19,6 +19,10 @@ export default {
         {
           title: '标题标题标题标题标题标题标题标题',
           content: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容'
+        },
+        {
+          title: '标题标题标题标题标题标题标题标题',
+          content: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容'
         }
       ]
     }
@@ -43,8 +47,12 @@ export default {
     margin 0 auto
     width 100%
     max-width 800px
+    padding 50px
+    /*border 1px solid #d94f5c*/
+    /*box-shadow 0 0 10px 5px rgba(217, 79, 92, 0.1)*/
     .list
       position relative
+      margin-bottom 80px
       .title
         position relative
         color #fff
@@ -68,4 +76,6 @@ export default {
         color #ccc
         font-size 16px
         font-weight 100
+        padding-left 20px
+        box-sizing border-box
 </style>

@@ -4,12 +4,14 @@ import AnimateText from './animate-text/animate-text'
 import HButton from './button/button'
 import MenuButton from './button/menu-button'
 import Book from './book/book'
+import Logo from './logo/logo'
 
 const components = {
   AnimateText,
   HButton,
   MenuButton,
-  Book
+  Book,
+  Logo
 }
 
 const install = function (Vue, opts = {}) {
