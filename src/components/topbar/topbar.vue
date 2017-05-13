@@ -7,7 +7,7 @@
     <!-- 导航列表 -->
     <transition name="menu-container-transition">
       <div class="menu-container" v-show="isOpenMenu" :class="{open: isOpenMenu}" @mouseleave="onMenuMouseLeave">
-        <header-image/>
+        <header-image ref="headerImage"/>
         <div class="menus">
           <transition-group name="menu-transition" tag="nav">
             <div
@@ -86,6 +86,9 @@ export default {
   },
 
   methods: {
+    playHeaderImageRipple () {
+      this.$refs.headerImage.showSvgRipple({offsetX: 0, offsetY: 0})
+    },
     /**
      * 切换菜单状态
      * state: 开启或关闭(Boolean)
@@ -103,6 +106,10 @@ export default {
           currentMenus.push(NAVS[currentMenus.length])
           this.menus = currentMenus
         }, 100)
+
+        setTimeout(() => {
+          this.playHeaderImageRipple()
+        }, 1500)
       }
 
       // 如果是webkit内核的浏览器才添加模糊效果
