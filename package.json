@@ -14,7 +14,7 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
-    "animate-text": "^0.2.5",
+    "animate-text": "^0.3.1",
     "lodash": "^4.17.4",
     "vue": "^2.2.6",
     "vue-router": "^2.3.1",

@@ -44,7 +44,8 @@ export default {
     changeCount: {
       type: Number,
       default: 32
-    }
+    },
+    spanClassName: String
   },
 
   data () {
@@ -80,6 +81,7 @@ export default {
         isNumber: this.isNumber, // 是否渲染为数字动画
         startNumber: this.startNumber, // 渲染为数字动画时 动画的开始数字
         changeCount: this.changeCount, // 数字动画数字变化次数
+        spanClassName: this.spanClassName,
         onAnimated: this.onAnimated // 动画结束事件回调
       })
     },
