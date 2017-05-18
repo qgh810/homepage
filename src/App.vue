@@ -46,6 +46,7 @@ export default {
   height 100%
   background #000 repeat url('~@/assets/images/base-bg.jpg')
   overflow hidden
+  color #fff
 
 .page-transition-enter-active, .page-transition-leave-active
   transition all .5s

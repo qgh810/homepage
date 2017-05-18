@@ -6,6 +6,7 @@ import Works from '@/views/works/index'
 import Collections from '@/views/collections/index'
 import CollectionList from '@/views/collections/lists'
 import Resume from '@/views/resume/index'
+import Notes from '@/views/notes/index'
 
 Vue.use(Router)
 
@@ -22,6 +23,10 @@ export default new Router({
     {
       path: '/works',
       component: Works
+    },
+    {
+      path: '/notes',
+      component: Notes
     },
     {
       path: '/collections',
